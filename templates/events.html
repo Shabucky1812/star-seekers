@@ -7,15 +7,13 @@
 
 <!-- upcoming events display -->
 <div class="event-list">
+    {% for event in events %}
     <div>
-        event goes here
+        {{ event.title }}
+        {{ event.description }}
+        {{ event.guide }}
     </div>
-    <div>
-        event goes here
-    </div>
-    <div>
-        event goes here
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
