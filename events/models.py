@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 WEATHER_OPTIONS = ((0, 'Unknown'), (1, 'Clear'), (2, 'Chilly'), (3, 'Rainy'), (4, 'Snowy'), (5, 'Stormy'))
@@ -35,3 +36,10 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Question(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='question')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='question')
+    content = models.TextField(max_length=600)
+    uploaded_on = models.DateTimeField(auto_now_add=True)
