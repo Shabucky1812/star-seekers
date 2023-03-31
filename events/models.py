@@ -43,3 +43,9 @@ class Question(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='question')
     content = models.TextField(max_length=600)
     uploaded_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['uploaded_on']
+
+    def __str__(self):
+        return f'Question about {self.event}, asked on {self.uploaded_on.date()} at {self.uploaded_on.time()}'
