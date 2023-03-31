@@ -49,3 +49,16 @@ class Question(models.Model):
 
     def __str__(self):
         return f'Question about {self.event}, asked on {self.uploaded_on.date()} at {self.uploaded_on.time()}'
+
+
+class Answer(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='answer')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answer')
+    content = models.TextField(max_length=600)
+    answered_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['question']
+
+    def __str__(self):
+        return f'Answer for Question: {self.question.content}'
