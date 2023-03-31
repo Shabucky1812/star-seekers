@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Guide, Event, Question
+from .models import Guide, Event, Question, Answer
 
 
 @admin.register(Guide)
@@ -22,3 +22,9 @@ class QuestionAdmin(admin.ModelAdmin):
 
     list_display = ('author', 'event', 'uploaded_on')
     list_filter = ('uploaded_on',)
+
+
+@admin.register(Answer)
+class AnswerAdmin(admin.ModelAdmin):
+
+    list_display = ('author', 'question')
