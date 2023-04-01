@@ -20,7 +20,7 @@ class EventAdmin(admin.ModelAdmin):
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
 
-    list_display = ('author', 'event', 'uploaded_on')
+    list_display = ('author', 'event', 'question_title', 'uploaded_on')
     list_filter = ('uploaded_on',)
 
 
