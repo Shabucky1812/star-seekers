@@ -12,6 +12,7 @@
         {{ event.title }}
         {{ event.description }}
         {{ event.guide.role_text }}
+        <a href="{% url 'event_details' event.id %}">Event Details</a>
     </div>
     {% endfor %}
 </div>
