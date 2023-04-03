@@ -39,14 +39,14 @@ def add_event(request):
     template = 'add_event.html'
 
     if request.method == 'POST':
-        form = EventForm(request.POST)
+        event_form = EventForm(request.POST, request.FILES)
 
-        if form.is_valid():
-            event = form.save(commit=False)
+        if event_form.is_valid():
+            event = event_form.save(commit=False)
             event.save()
 
             return redirect(
-                reverse('events')
+                reverse('event_details', kwargs={'event_id': event.id})
             )
 
     context = {
