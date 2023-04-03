@@ -2,8 +2,11 @@
 
 {% block content %}
 
-<!-- page title -->
-<h2>Upcoming Events</h2>
+<!-- page title and add event button container-->
+<div>
+    <h3>Upcoming Events</h3>
+    <button class="right"><a href="{% url 'add_event' %}">Add Event</a></button>
+</div>
 
 <!-- upcoming events display -->
 <div class="event-list">
