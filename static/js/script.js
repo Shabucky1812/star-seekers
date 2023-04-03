@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('#id_start_time');
     M.Timepicker.init(elems);
 
+    var elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
+
     // find add_event form event_date field and add datepicker class for materialzie functionality
     dateField = document.getElementById('id_event_date')
     dateField.setAttribute('class', 'datepicker')
