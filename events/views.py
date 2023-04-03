@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Guide, Event
 from .forms import EventForm
 
@@ -37,6 +37,18 @@ def event_details(request, event_id):
 def add_event(request):
 
     template = 'add_event.html'
+
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.save()
+
+            return redirect(
+                reverse('events')
+            )
+
     context = {
         'event_form': EventForm()
     }
