@@ -82,3 +82,11 @@ def edit_event(request, event_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    event.delete()
+
+    return redirect(reverse('events'))

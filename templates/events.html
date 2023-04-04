@@ -2,13 +2,14 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
 <!-- page title and add event button container-->
 <div>
     <h3>Upcoming Events</h3>
+    <!-- only show users the add event option -->
+    {% if user.is_authenticated %}
     <button class="right"><a href="{% url 'add_event' %}">Add Event</a></button>
+    {% endif %}
 </div>
-{% endif %}
 
 <!-- upcoming events display -->
 <div class="event-list">
@@ -19,7 +20,12 @@
         <img src="{{ event.image.url }}" alt="Starry sky" style="width: auto; height: 200px;">
         {{ event.guide.role_text }}
         <a href="{% url 'event_details' event.id %}">Event Details</a>
+
+        <!-- only show users the eidt and delete event options -->
+        {% if user.is_authenticated %}
         <button><a href="{% url 'edit_event' event.id %}">Edit Event</a></button>
+        <button><a href="{% url 'delete_event' event.id %}">Delete Event</a></button>
+        {% endif %}
     </div>
     {% endfor %}
 </div>
