@@ -19,6 +19,7 @@
         <img src="{{ event.image.url }}" alt="Starry sky" style="width: auto; height: 200px;">
         {{ event.guide.role_text }}
         <a href="{% url 'event_details' event.id %}">Event Details</a>
+        <button><a href="{% url 'edit_event' event.id %}">Edit Event</a></button>
     </div>
     {% endfor %}
 </div>

@@ -38,14 +38,13 @@ def event_details(request, event_id):
 @login_required
 def add_event(request):
 
-    template = 'add_event.html'
+    template = 'event_form.html'
 
     if request.method == 'POST':
         event_form = EventForm(request.POST, request.FILES)
 
         if event_form.is_valid():
-            event = event_form.save(commit=False)
-            event.save()
+            event = event_form.save()
 
             return redirect(
                 reverse('event_details', kwargs={'event_id': event.id})
@@ -53,6 +52,21 @@ def add_event(request):
 
     context = {
         'event_form': EventForm()
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_event(request, event_id):
+
+    template = 'event_form.html'
+
+    event = get_object_or_404(Event, id=event_id)
+    form = EventForm(instance=event)
+
+    context = {
+        'event_form': form
     }
 
     return render(request, template, context)
