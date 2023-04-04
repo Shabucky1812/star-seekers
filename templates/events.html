@@ -14,6 +14,7 @@
     <div>
         {{ event.title }}
         {{ event.description }}
+        <img src="{{ event.image.url }}" alt="Starry sky" style="width: auto; height: 200px;">
         {{ event.guide.role_text }}
         <a href="{% url 'event_details' event.id %}">Event Details</a>
     </div>

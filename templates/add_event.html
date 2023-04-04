@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {{ event_form }}
     {% csrf_token %}
     <button type="submit">Add Event</button>
