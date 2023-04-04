@@ -13,9 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // find add_event form event_date field and add datepicker class for materialzie functionality
     dateField = document.getElementById('id_event_date');
-    dateField.setAttribute('class', 'datepicker');
+    if (dateField) {
+        dateField.setAttribute('class', 'datepicker');
+    }
 
     // change start_time input field a timepicker
-    dateField = document.getElementById('id_start_time');
-    dateField.setAttribute('type', 'time');
+    timeField = document.getElementById('id_start_time');
+    if (timeField) {
+        timeField.setAttribute('type', 'time');
+    }
 });
