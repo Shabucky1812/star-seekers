@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from .models import Guide, Event
 from .forms import EventForm
 
@@ -34,6 +35,7 @@ def event_details(request, event_id):
     return render(request, template, context)
 
 
+@login_required
 def add_event(request):
 
     template = 'add_event.html'
