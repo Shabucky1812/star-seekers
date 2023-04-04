@@ -51,7 +51,8 @@ def add_event(request):
             )
 
     context = {
-        'event_form': EventForm()
+        'event_form': EventForm(),
+        'submit_button_text': 'Add Event',
     }
 
     return render(request, template, context)
@@ -65,8 +66,19 @@ def edit_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     form = EventForm(instance=event)
 
+    if request.method == 'POST':
+        event_form = EventForm(request.POST, request.FILES, instance=event)
+
+        if event_form.is_valid():
+            updated_event = event_form.save()
+
+            return redirect(
+                reverse('event_details', kwargs={'event_id': updated_event.id})
+            )
+
     context = {
-        'event_form': form
+        'event_form': form,
+        'submit_button_text': 'Edit Event',
     }
 
     return render(request, template, context)
