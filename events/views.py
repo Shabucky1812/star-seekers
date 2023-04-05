@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import timezone
 from .models import Guide, Event
 from .forms import EventForm
@@ -15,7 +15,7 @@ def index(request):
 def events(request):
 
     today = timezone.now()
-    upcoming_events = Event.objects.filter(event_date__gte=today.date(), start_time__gt=today.time())
+    upcoming_events = Event.objects.filter(event_date__gte=today)
 
     template = 'events.html'
     context = {
@@ -37,7 +37,7 @@ def event_detail(request, event_id):
     return render(request, template, context)
 
 
-@login_required
+@staff_member_required
 def add_event(request):
 
     template = 'event_form.html'
@@ -60,7 +60,7 @@ def add_event(request):
     return render(request, template, context)
 
 
-@login_required
+@staff_member_required
 def edit_event(request, event_id):
 
     template = 'event_form.html'
@@ -86,7 +86,7 @@ def edit_event(request, event_id):
     return render(request, template, context)
 
 
-@login_required
+@staff_member_required
 def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     event.delete()

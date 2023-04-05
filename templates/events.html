@@ -6,7 +6,7 @@
 <div>
     <h3>Upcoming Events</h3>
     <!-- only show users the add event option -->
-    {% if user.is_authenticated %}
+    {% if user.is_staff %}
     <button class="right"><a href="{% url 'add_event' %}">Add Event</a></button>
     {% endif %}
 </div>
@@ -22,7 +22,7 @@
         <a href="{% url 'event_detail' event.id %}">Event Details</a>
 
         <!-- only show users the eidt and delete event options -->
-        {% if user.is_authenticated %}
+        {% if user.is_staff %}
         <button><a href="{% url 'edit_event' event.id %}">Edit Event</a></button>
         <button><a href="{% url 'delete_event' event.id %}">Delete Event</a></button>
         {% endif %}
