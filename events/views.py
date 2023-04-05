@@ -25,11 +25,11 @@ def events(request):
     return render(request, template, context)
 
 
-def event_details(request, event_id):
+def event_detail(request, event_id):
 
     event = get_object_or_404(Event, id=event_id)
 
-    template = 'event_details.html'
+    template = 'event_detail.html'
     context = {
         'event': event
     }
@@ -49,7 +49,7 @@ def add_event(request):
             event = event_form.save()
 
             return redirect(
-                reverse('event_details', kwargs={'event_id': event.id})
+                reverse('event_detail', kwargs={'event_id': event.id})
             )
 
     context = {
@@ -75,7 +75,7 @@ def edit_event(request, event_id):
             updated_event = event_form.save()
 
             return redirect(
-                reverse('event_details', kwargs={'event_id': updated_event.id})
+                reverse('event_detail', kwargs={'event_id': updated_event.id})
             )
 
     context = {
