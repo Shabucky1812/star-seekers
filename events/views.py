@@ -9,7 +9,11 @@ def index(request):
 
     template = 'index.html'
 
-    return render(request, template)
+    context = {
+        'page_title': 'Home'
+    }
+
+    return render(request, template, context)
 
 
 def events(request):
@@ -19,7 +23,8 @@ def events(request):
 
     template = 'events.html'
     context = {
-        'events': upcoming_events
+        'events': upcoming_events,
+        'page_title': 'Events'
     }
 
     return render(request, template, context)
@@ -31,7 +36,8 @@ def event_detail(request, event_id):
 
     template = 'event_detail.html'
     context = {
-        'event': event
+        'event': event,
+        'page_title': f'{event.title}'
     }
 
     return render(request, template, context)
@@ -56,6 +62,7 @@ def add_event(request):
     context = {
         'event_form': event_form,
         'submit_button_text': 'Add Event',
+        'page_title': 'New Event'
     }
 
     return render(request, template, context)
@@ -81,7 +88,8 @@ def edit_event(request, event_id):
 
     context = {
         'event_form': event_form,
-        'submit_button_text': 'Edit Event',
+        'submit_button_text': 'Save Changes',
+        'page_title': f'Editing Event: {event.title}'
     }
 
     return render(request, template, context)
