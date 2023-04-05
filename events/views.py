@@ -41,6 +41,7 @@ def event_detail(request, event_id):
 def add_event(request):
 
     template = 'event_form.html'
+    event_form = EventForm()
 
     if request.method == 'POST':
         event_form = EventForm(request.POST, request.FILES)
@@ -53,7 +54,7 @@ def add_event(request):
             )
 
     context = {
-        'event_form': EventForm(),
+        'event_form': event_form,
         'submit_button_text': 'Add Event',
     }
 
@@ -66,7 +67,7 @@ def edit_event(request, event_id):
     template = 'event_form.html'
 
     event = get_object_or_404(Event, id=event_id)
-    form = EventForm(instance=event)
+    event_form = EventForm(instance=event)
 
     if request.method == 'POST':
         event_form = EventForm(request.POST, request.FILES, instance=event)
@@ -79,7 +80,7 @@ def edit_event(request, event_id):
             )
 
     context = {
-        'event_form': form,
+        'event_form': event_form,
         'submit_button_text': 'Edit Event',
     }
 
