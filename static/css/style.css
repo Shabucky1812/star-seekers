@@ -14,3 +14,23 @@
     object-fit: cover;
     margin-top: 30px;
 }
+
+.event-card-divider {
+    width: 60%;
+}
+
+.event-card-title {
+    font-size: 1.2em;
+    margin: 0 20px;
+}
+
+#events-page-title {
+    display: inline-block;
+}
+
+.button {
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    border: dashed 1px #efefef;
+}
