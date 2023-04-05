@@ -15,12 +15,9 @@
 <div class="event-list">
     <div class="row">
         {% for event in events %}
-        <div class="col s12 m6 l4">
-            {{ event.title }}
-            {{ event.description }}
-            <img src="{{ event.image.url }}" alt="Starry sky" style="width: auto; height: 200px;">
-            {{ event.guide.role_text }}
-            <a href="{% url 'event_detail' event.id %}">Event Details</a>
+        <div class="col s12 m6 l4 event-card">
+            <img src="{{ event.image.url }}" alt="Starry sky" class="event-card-image">
+            <p class="event-card-title"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></p>
     
             <!-- only show admins the edit and delete event options -->
             {% if user.is_staff %}
