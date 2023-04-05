@@ -1,3 +1,18 @@
+/* google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Philosopher:ital@0;1&display=swap');
+
+/* general */
+
+* {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 200;
+}
+
+h1, h2, h3 {
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+}
+
 /* Events list page */
 
 .event-card {
@@ -29,8 +44,9 @@
 }
 
 .button {
-    width: 80px;
-    height: 30px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     border: dashed 1px #efefef;
+    margin: 0 auto;
 }
