@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 from .models import Guide, Event
 from .forms import EventForm
 
@@ -13,7 +14,8 @@ def index(request):
 
 def events(request):
 
-    upcoming_events = Event.objects.all()
+    today = timezone.now()
+    upcoming_events = Event.objects.filter(event_date__gte=today.date(), start_time__gt=today.time())
 
     template = 'events.html'
     context = {
