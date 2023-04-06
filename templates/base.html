@@ -20,28 +20,28 @@
         <!-- Navigation bar -->
         <nav>
             <div class="nav-wrapper blue darken-4">
-                <a href="{% url 'home' %}" class="brand-logo">Star Seekers</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+                <a href="{% url 'home' %}" class="brand-logo amber-text text-lighten-3">Star Seekers</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger amber-text text-lighten-3 right"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
+                    <li><a href="{% url 'events' %}" class="amber-text text-lighten-3">Events</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                    <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
                     {% else %}
-                    <li><a href="{% url 'account_login' %}">Sign In</a></li>
+                    <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In</a></li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
 
         <!-- navbar hamburger menu for smaller screens -->
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'events' %}">Events</a></li>
+        <ul class="sidenav blue darken-4" id="mobile-demo">
+            <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
+            <li><a href="{% url 'events' %}" class="amber-text text-lighten-3">Events</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
             {% else %}
-            <li><a href="{% url 'account_login' %}">Sign In</a></li>
+            <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In</a></li>
             {% endif %}
         </ul>
     </header>

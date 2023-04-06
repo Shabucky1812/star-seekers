@@ -9,6 +9,10 @@
     color: #000;
 }
 
+body {
+    background-color: #fce4ec;
+}
+
 h1, h2, h3 {
     font-family: 'Philosopher', serif;
     font-style: italic;
