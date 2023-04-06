@@ -29,6 +29,26 @@ h1, h2, h3 {
     padding-left: 20px;
 }
 
+/* footer */
+
+footer {
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 1.2em;
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+    color: #ffe082;
+    display: inline-block;
+}
+
+.footer-links a i {
+    color: #ffe082;
+    margin: 0 10px;
+    font-size: 1.6em;
+}
+
 /* Events list page */
 
 .event-card {
