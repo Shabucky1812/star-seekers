@@ -32,25 +32,25 @@ h1, h2, h3 {
 /* Events list page */
 
 .event-card {
-    outline: 1px solid #000;
-    outline-offset: -10px;
+    border: 1px solid #000;
     border-radius: 20px;
-    height: 320px;
+    height: 330px;
     text-align: center;
+    background-color: #f8bbd0;
 }
 
 .event-card-image {
-    width: 90%;
+    width: 95%;
     height: 45%;
     object-fit: cover;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .event-card-divider {
     width: 60%;
 }
 
-.event-card-title a {
+.event-card-title {
     font-size: 1.2em;
     margin: 0 20px;
     color: #0d47a1;

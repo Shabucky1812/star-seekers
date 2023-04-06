@@ -17,17 +17,21 @@
 <div class="event-list">
     <div class="row">
         {% for event in events %}
-        <div class="col s12 m6 l4 event-card">
-            <img src="{{ event.image.url }}" alt="Starry sky" class="event-card-image">
-            <hr class="event-card-divider">
-            <p class="event-card-title"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></p>
-            <p class="event-card-date-and-time">{{ event.event_date }} | {{ event.start_time }}</p>
-    
-            <!-- only show admins the edit and delete event options -->
-            {% if user.is_staff %}
-            <a href="{% url 'edit_event' event.id %}"><button class="button edit-button"><i class="material-icons">create</i></button></a>
-            <a href="{% url 'delete_event' event.id %}"><button class="button delete-button"><i class="material-icons">close</i></button></a>
-            {% endif %}
+        <div class="col s12 m6 l4">
+            <div class="event-card">
+                <a href="{% url 'event_detail' event.id %}">
+                    <img src="{{ event.image.url }}" alt="Starry sky" class="event-card-image">
+                    <hr class="event-card-divider">
+                    <p class="event-card-title">{{ event.title }}</p>
+                    <p class="event-card-date-and-time">{{ event.event_date }} | {{ event.start_time }}</p>
+                </a>
+            
+                <!-- only show admins the edit and delete event options -->
+                {% if user.is_staff %}
+                <a href="{% url 'edit_event' event.id %}"><button class="button edit-button"><i class="material-icons">create</i></button></a>
+                <a href="{% url 'delete_event' event.id %}"><button class="button delete-button"><i class="material-icons">close</i></button></a>
+                {% endif %}
+            </div>
         </div>
         {% endfor %}
     </div>
