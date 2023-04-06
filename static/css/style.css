@@ -34,9 +34,12 @@ h1, h2, h3 {
 .event-card {
     border: 1px solid #000;
     border-radius: 20px;
+    outline: 3px solid #ffe082;
+    outline-offset: -5px;
     height: 330px;
     text-align: center;
     background-color: #f8bbd0;
+    margin-top: 10px;
 }
 
 .event-card-image {
