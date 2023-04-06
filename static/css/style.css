@@ -18,6 +18,13 @@ h1, h2, h3 {
     font-style: italic;
 }
 
+/* navbar */
+
+.brand-logo {
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+}
+
 /* Events list page */
 
 .event-card {
@@ -52,6 +59,19 @@ h1, h2, h3 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: dashed 1px #efefef;
+    border: dashed 2px #ffca28;
     margin: 0 auto;
+    background-color: #ffe082;
+}
+
+.add-button {
+    margin-top: 2rem;
+}
+
+.add-button:hover, .edit-button:hover {
+    background-color: #00e676;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
 }

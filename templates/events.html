@@ -7,7 +7,7 @@
     <h3 id="events-page-title">Upcoming Events</h3>
     <!-- only show admins the add event option -->
     {% if user.is_staff %}
-    <a href="{% url 'add_event' %}"><button class="right button"><i class="material-icons">add_circle_outline</i></button></a>
+    <a href="{% url 'add_event' %}"><button class="right button add-button"><i class="material-icons">add_circle_outline</i></button></a>
     {% endif %}
 </div>
 
@@ -24,8 +24,8 @@
     
             <!-- only show admins the edit and delete event options -->
             {% if user.is_staff %}
-            <a href="{% url 'edit_event' event.id %}"><button class="button"><i class="material-icons">create</i></button></a>
-            <a href="{% url 'delete_event' event.id %}"><button class="button"><i class="material-icons">close</i></button></a>
+            <a href="{% url 'edit_event' event.id %}"><button class="button edit-button"><i class="material-icons">create</i></button></a>
+            <a href="{% url 'delete_event' event.id %}"><button class="button delete-button"><i class="material-icons">close</i></button></a>
             {% endif %}
         </div>
         {% endfor %}
