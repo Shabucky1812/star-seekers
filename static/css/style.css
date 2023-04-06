@@ -25,19 +25,23 @@ h1, h2, h3 {
     font-style: italic;
 }
 
+.nav-wrapper {
+    padding-left: 20px;
+}
+
 /* Events list page */
 
 .event-card {
     outline: 1px solid #000;
     outline-offset: -10px;
     border-radius: 20px;
-    height: 300px;
+    height: 320px;
     text-align: center;
 }
 
 .event-card-image {
     width: 90%;
-    height: 55%;
+    height: 45%;
     object-fit: cover;
     margin-top: 30px;
 }
@@ -46,9 +50,14 @@ h1, h2, h3 {
     width: 60%;
 }
 
-.event-card-title {
+.event-card-title a {
     font-size: 1.2em;
     margin: 0 20px;
+    color: #0d47a1;
+}
+
+.event-card-date-and-time {
+    margin: 8px 0;
 }
 
 #events-page-title {

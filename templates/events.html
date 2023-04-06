@@ -21,6 +21,7 @@
             <img src="{{ event.image.url }}" alt="Starry sky" class="event-card-image">
             <hr class="event-card-divider">
             <p class="event-card-title"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></p>
+            <p class="event-card-date-and-time">{{ event.event_date }} | {{ event.start_time }}</p>
     
             <!-- only show admins the edit and delete event options -->
             {% if user.is_staff %}
