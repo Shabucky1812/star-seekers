@@ -14,11 +14,29 @@
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+
+  {{ form.non_field_errors }}
+  <div class="fieldWrapper">
+    {{ form.login.errors }}
+    {{ form.login.label_tag }}
+    {{ form.login }}
+  </div>
+  <div class="fieldWrapper">
+    {{ form.password.errors }}
+    {{ form.password.label_tag }}
+    {{ form.password }}
+  </div>
+  <div class="fieldWrapper">
+    {{ form.remember.errors }}
+    {{ form.remember.label_tag }}
+    {{ form.remember }}
+    <span id="login-checkbox"></span>
+  </div>
+
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <button class="primaryAction" type="submit" id="login-submit-button">{% trans "Sign In" %}</button>
 </form>
 
 {% endblock %}
