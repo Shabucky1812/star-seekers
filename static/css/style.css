@@ -67,10 +67,24 @@ footer {
     font-size: 1.6em;
 }
 
+/* Home page */
+
+.jumbotron {
+    background-image: url('https://res.cloudinary.com/watermelon1812/image/upload/v1680886422/eeaetyrsqdkw9bcgcy7h.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 500px;
+    max-height: 50%; 
+}
+
 /* Events list page */
 
 .event-card {
-    border: 1px solid #000;
+    border: 1px solid #0d47a1;
     border-radius: 20px;
     outline: 3px solid #ffe082;
     outline-offset: -5px;
@@ -78,6 +92,7 @@ footer {
     text-align: center;
     background-color: #f8bbd0;
     margin-top: 10px;
+    box-shadow: 1px 1px 1px #b1afaf;
 }
 
 .event-card-image {
