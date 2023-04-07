@@ -17,9 +17,6 @@ class Guide(models.Model):
     def __str__(self):
         return self.name
 
-    def role_text(self):
-        return GUIDE_ROLES[self.role][1]
-
 
 class Event(models.Model):
     title = models.CharField(max_length=50, unique=True)

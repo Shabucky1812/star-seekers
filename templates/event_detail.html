@@ -3,17 +3,24 @@
 {% block content %}
 
 <!-- event details -->
-<div class="event-detail">
-
+<div class="event-details-card">
+    <img src="{{ event.image.url }}" alt="Picture of the sky at event location" style="height: 200px; width: 200px;">
+    <h2>{{ event.title }}</h2>
+    <p>{{ event.description }}</p>
+    <p>Date & Time: <span>{{ event.event_date }} | {{ event.start_time }}</span></p>
+    <p>Meet Point: <span>{{ event.meet_point }}</span></p>
+    <p>Expected Weather: <span>{{ event.get_expected_weather_display }}</span></p>
 </div>
 
 <!-- guide details -->
-<div class="guide-detail">
-
+<div class="guide-details-card">
+    <h3>Event Host</h3>
+    <img src="{{ event.guide.image }}" alt="Picture of this event's host" style="height: 200px; width: 200px;">
+    <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
 </div>
 
 <!-- booking form -->
-<div class="booking">
+<div class="booking-details-card">
     <form action="" method="POST">
         {{ event.title }}
         form goes here
