@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // catch booking submit and run submission function
     let bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
-        submitBooking(bookingForm)
+        submitBooking(bookingForm);
     };
     
     function submitBooking(form) {
@@ -40,7 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
             let modal = document.getElementById('booking-modal');
             let instance = M.Modal.init(modal, {dismissible: false});
             instance.open();
-            console.log('submitted');
+            sendEmail(form);
         });
     };
+
+    function sendEmail(form) {
+        form.event_title.value = document.getElementById('event-title').innerText;
+        form.event_start_time.value = document.getElementById('event-time').innerText;
+        form.event_meet_point.value = document.getElementById('event-meet-point').innerText;
+        emailjs.sendForm('booking_confirmation', 'booking_confirmation', form);
+    }
 });

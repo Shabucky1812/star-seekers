@@ -5,10 +5,10 @@
 <!-- event details -->
 <div class="event-details-card">
     <img src="{{ event.image.url }}" alt="Picture of the sky at event location" style="height: 200px; width: 200px;">
-    <h2>{{ event.title }}</h2>
+    <h2 id="event-title">{{ event.title }}</h2>
     <p>{{ event.description }}</p>
-    <p>Date & Time: <span>{{ event.event_date }} | {{ event.start_time }}</span></p>
-    <p>Meet Point: <span>{{ event.meet_point }}</span></p>
+    <p>Date & Time: <span>{{ event.event_date }}</span> | <span id="event-time">{{ event.start_time }}</span></p>
+    <p>Meet Point: <span id="event-meet-point">{{ event.meet_point }}</span></p>
     <p>Expected Weather: <span>{{ event.get_expected_weather_display }}</span></p>
 </div>
 
@@ -27,7 +27,7 @@
         <input type="text" id="booking-name" name="name" placeholder="Full name" required>
 
         <label for="booking-email">Email Address</label>
-        <input type="email" id="booking-name" name="email" placeholder="example123@email.com" required>
+        <input type="email" id="booking-email" name="email" placeholder="example123@email.com" required>
 
         <label for="booking-group-size">Group Size</label>
         <select name="group-size" id="booking-group-size">
@@ -36,6 +36,10 @@
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
+
+        <input type="hidden" name="event_title">
+        <input type="hidden" name="event_meet_point">
+        <input type="hidden" name="event_start_time">
 
         <button type="submit" value="submit">Book Now</button>
     </form>
