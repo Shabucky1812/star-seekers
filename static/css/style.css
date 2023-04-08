@@ -77,8 +77,22 @@ footer {
     left: 0;
     right: 0;
     z-index: -1;
-    height: 500px;
-    max-height: 50%; 
+    height: 60%;
+    max-height: 400px; 
+}
+
+#main-title {
+    margin: 20px 0;
+    color: #ffe082;
+    text-align: center;
+}
+
+.main-title-background {
+    background-color: hsla(249, 75%, 60%, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(1px);
+    margin-top: 60px;
+    min-height: 20%;
 }
 
 /* Events list page */
