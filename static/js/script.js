@@ -12,15 +12,35 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
 
+    // materialize modal initialization
+    var elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems);
+
     // find add_event form event_date field and add datepicker class for materialize functionality
     dateField = document.getElementById('id_event_date');
     if (dateField) {
         dateField.setAttribute('class', 'datepicker');
-    }
+    };
 
     // change start_time input field a timepicker
     timeField = document.getElementById('id_start_time');
     if (timeField) {
         timeField.setAttribute('type', 'time');
-    }
+    };
+
+    // catch booking submit and run submission function
+    let bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        submitBooking(bookingForm)
+    };
+    
+    function submitBooking(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let modal = document.getElementById('booking-modal');
+            let instance = M.Modal.init(modal, {dismissible: false});
+            instance.open();
+            console.log('submitted');
+        });
+    };
 });
