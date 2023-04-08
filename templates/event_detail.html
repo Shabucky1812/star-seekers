@@ -37,6 +37,7 @@
             <option value="4">4</option>
         </select>
 
+        <!-- hidden inputs for emailJS values -->
         <input type="hidden" name="event_title">
         <input type="hidden" name="event_meet_point">
         <input type="hidden" name="event_start_time">
@@ -47,11 +48,12 @@
     <!-- booking submission modal -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4>You're all booked up!</h4>
+            <p>Check your email for your booking confirmation, all you have to do now is contain your excitement!</p>
+            <p>We can't wait to see you soon.</p>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="{% url 'events' %}" class="modal-close waves-effect waves-green btn-flat">Return to Events</a>
         </div>
     </div>
     {% else %}
