@@ -92,7 +92,12 @@ footer {
     border-radius: 20px;
     backdrop-filter: blur(1px);
     margin-top: 60px;
-    min-height: 20%;
+    margin-bottom: 120px;
+}
+
+#about-title {
+    font-size: 2rem;
+    text-align: center;
 }
 
 /* Events list page */
@@ -153,4 +158,20 @@ footer {
 
 .delete-button:hover {
     background-color: #d32f2f;
+}
+
+/* media queries */
+
+/* small screens */
+@media screen and (max-width: 1000px) {
+
+    /* home page */
+    
+    #main-title {
+        font-size: 3.4rem;
+    }
+
+    .main-title-background {
+        margin-bottom: 60px;
+    }
 }
