@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (bookingForm) {
         submitBooking(bookingForm);
     };
+
+    // check for unanswered questions and provide default text
+    let answerBlocks = document.getElementsByClassName('question-answer');
+    if (answerBlocks.length !== 0) {
+        for (let i = 0; i < answerBlocks.length; i++) {
+            if (answerBlocks[i].children.length == 0) {
+                answerBlocks[i].innerHTML = `<p>Sorry! This question has not been answered yet, check back again later.</p>`
+            }
+        }
+    }
+
     
     function submitBooking(form) {
         form.addEventListener('submit', (e) => {

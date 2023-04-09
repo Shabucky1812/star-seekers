@@ -38,8 +38,8 @@ def event_detail(request, event_id):
     except Question.DoesNotExist:
         event_questions = None
 
+    answers = []
     if event_questions:
-        answers = []
         for question in event_questions:
             try:
                 answer = Answer.objects.filter(question=question)
