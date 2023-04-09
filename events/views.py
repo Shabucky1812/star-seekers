@@ -36,6 +36,20 @@ def event_detail(request, event_id):
 
     template = 'event_detail.html'
     question_form = QuestionForm()
+
+    if request.method == 'POST':
+        question_form = QuestionForm(request.POST)
+
+        if question_form.is_valid():
+            question = question_form.save(commit=False)
+            question.author = request.user
+            question.event = event
+            question.save()
+
+            return redirect(
+                reverse('event_detail', kwargs={'event_id': event.id})
+            )
+
     context = {
         'question_form': question_form,
         'event': event,
