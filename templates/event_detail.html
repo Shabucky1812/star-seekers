@@ -64,7 +64,7 @@
 
 <hr>
 
-<!-- q&a section -->
+<!-- ask a question section -->
 <div class="questions-input-section">
     <h3>Ask a Question</h3>
     {% if user.is_authenticated %}
@@ -75,6 +75,21 @@
     </form>
     {% else %}
         <p>Please Sign In or Create an Account to ask questions about this event.</p>
+    {% endif %}
+</div>
+
+<hr>
+
+<!-- previously asked questions section -->
+<div class="previous-questions">
+    <h3>Previously Asked Questions</h3>
+    {% if asked_questions %}
+        {% for question in asked_questions %}
+        <p>{{ question.question_title }}</p>
+        <p>{{ question.question_details }}</p>
+        {% endfor %}
+    {% else %}
+    <p>No one has asked any questions about this event yet.</p>
     {% endif %}
 </div>
 
