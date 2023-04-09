@@ -21,6 +21,7 @@
 
 <!-- booking form -->
 <div class="booking-details-card">
+    <h3>Book your place</h3>
     {% if user.is_authenticated %}
     <form id="booking-form" action="#!">
         <label for="booking-name">Name</label>
@@ -57,7 +58,23 @@
         </div>
     </div>
     {% else %}
-    <p>Please Sign In or Create an Account to book a place at this Event!</p>
+    <p>Please Sign In or Create an Account to book a place at this event.</p>
+    {% endif %}
+</div>
+
+<hr>
+
+<!-- q&a section -->
+<div class="questions-input-section">
+    <h3>Ask a Question</h3>
+    {% if user.is_authenticated %}
+    <form method="POST">
+        {{ question_form }}
+        {% csrf_token %}
+        <button type="submit">Submit Question</button>
+    </form>
+    {% else %}
+        <p>Please Sign In or Create an Account to ask questions about this event.</p>
     {% endif %}
 </div>
 
