@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import timezone
-from .models import Guide, Event, Question
+from .models import Guide, Event, Question, Answer
 from .forms import EventForm, QuestionForm
 
 
@@ -38,6 +38,17 @@ def event_detail(request, event_id):
     except Question.DoesNotExist:
         event_questions = None
 
+    if event_questions:
+        answers = []
+        for question in event_questions:
+            try:
+                answer = Answer.objects.filter(question=question)
+            except Answer.DoesNotExist:
+                answer = None
+
+            if answer:
+                answers.append(answer[0])
+
     template = 'event_detail.html'
     question_form = QuestionForm()
 
@@ -58,7 +69,8 @@ def event_detail(request, event_id):
         'question_form': question_form,
         'event': event,
         'asked_questions': event_questions,
-        'page_title': f'{event.title}'
+        'answers': answers,
+        'page_title': f'{event.title}',
     }
 
     return render(request, template, context)

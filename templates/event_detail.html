@@ -85,8 +85,17 @@
     <h3>Previously Asked Questions</h3>
     {% if asked_questions %}
         {% for question in asked_questions %}
-        <p>{{ question.question_title }}</p>
-        <p>{{ question.question_details }}</p>
+            <div class="asked-question">
+                <p>{{ question.question_title }}</p>
+                <p>{{ question.question_details }}</p>
+            </div>
+            <div class="question-answer">
+            {% for answer in answers %}
+            {% if answer.question == question %}
+                <p>{{ answer.content }}</p>
+            {% endif %}
+            {% endfor %}
+            </div>
         {% endfor %}
     {% else %}
     <p>No one has asked any questions about this event yet.</p>
