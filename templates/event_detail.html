@@ -8,7 +8,7 @@
             <!-- event image -->
             <img src="{{ event.image.url }}" alt="Picture of the sky at event location" class="details-event-image">
         </div>
-        <div class="col s12 m8 l6">
+        <div class="col s12 m8 l6" id="event-details">
             <h2 id="event-title">{{ event.title }}</h2>
             <p>{{ event.description }}</p>
             <p>Date & Time: <span>{{ event.event_date }}</span> | <span id="event-time">{{ event.start_time }}</span>
@@ -20,7 +20,7 @@
 
     <!-- guide details -->
     <div class="guide-details-card">
-        <div class="col s12 m4 l4">
+        <div class="col s12 m4 l4 center">
             <h3>Event Host</h3>
             <img src="{{ event.guide.image.url }}" alt="Picture of this event's host" class="details-guide-image">
             <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
@@ -52,7 +52,7 @@
                 <input type="hidden" name="event_meet_point">
                 <input type="hidden" name="event_start_time">
 
-                <button type="submit" value="submit">Book Now</button>
+                <button type="submit" value="submit" class="details-button">Book Now</button>
             </form>
             {% else %}
             <p>Please Sign In or Create an Account to book a place at this event.</p>
@@ -84,7 +84,7 @@
             <form method="POST">
                 {{ question_form }}
                 {% csrf_token %}
-                <button type="submit">Submit Question</button>
+                <button type="submit" class="details-button">Submit Question</button>
             </form>
             {% else %}
             <p>Please Sign In or Create an Account to ask questions about this event.</p>
@@ -92,23 +92,21 @@
         </div>
     </div>
 
-    <hr>
-
     <div class="col s12 m12 l12">
         <!-- previously asked questions section -->
         <div class="previous-questions">
             <h3>Previously Asked Questions</h3>
-            <div class="row">
-                {% if asked_questions %}
-                {% for question in asked_questions %}
+            {% if asked_questions %}
+            {% for question in asked_questions %}
+            <div class="row asked-questions">
                 <div class="col s12 m6 l6">
-                    <div class="asked-question">
-                        <p>{{ question.question_title }}</p>
+                    <div class="question">
+                        <p class="question-title">{{ question.question_title }}</p>
                         <p>{{ question.question_details }}</p>
                     </div>
                 </div>
                 <div class="col s12 m6 l6">
-                    <div class="question-answer">
+                    <div class="answer">
                         {% for answer in answers %}
                         {% if answer.question == question %}
                         <p>{{ answer.content }}</p>
@@ -116,13 +114,15 @@
                         {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
-                {% else %}
-                <div class="col s12 m12 l12">
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="row">
+                <div class="col s12 m12 l12 center">
                     <p>No one has asked any questions about this event yet.</p>
                 </div>
-                {% endif %}
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

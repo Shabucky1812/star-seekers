@@ -26,6 +26,10 @@ h1, h2, h3 {
     font-style: italic;
 }
 
+label {
+    color: #000;
+}
+
 /* login page */
 
 #login-checkbox {
@@ -63,7 +67,7 @@ footer {
 
 .footer-links a i {
     color: #ffe082;
-    margin: 0 10px;
+    margin: 0 10px 10px;
     font-size: 1.6em;
 }
 
@@ -166,6 +170,12 @@ footer {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    margin-top: 30px;
+}
+
+#event-details {
+    min-height: 360px;
+    height: auto;
 }
 
 .details-guide-image {
@@ -173,6 +183,25 @@ footer {
     height: 150px;
     object-fit: cover;
     margin: 10px 0;
+}
+
+.asked-questions {
+    width: 100%;
+    height: auto;
+    border: 1px dashed #0d47a1;
+    border-radius: 20px;
+}
+
+.question-title {
+    text-decoration: underline;
+}
+
+.details-button {
+    width: auto;
+    height: 30px;
+    margin: 10px 0;
+    background-color: #0d47a1;
+    color: #ffca28;
 }
 
 /* media queries */

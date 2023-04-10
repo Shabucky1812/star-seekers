@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // check for unanswered questions and provide default text
-    let answerBlocks = document.getElementsByClassName('question-answer');
+    let answerBlocks = document.getElementsByClassName('answer');
     if (answerBlocks.length !== 0) {
         for (let i = 0; i < answerBlocks.length; i++) {
             if (answerBlocks[i].children.length == 0) {
