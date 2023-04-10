@@ -2,49 +2,63 @@
 
 {% block content %}
 
-<!-- event details -->
-<div class="event-details-card">
-    <img src="{{ event.image.url }}" alt="Picture of the sky at event location" style="height: 200px; width: 200px;">
-    <h2 id="event-title">{{ event.title }}</h2>
-    <p>{{ event.description }}</p>
-    <p>Date & Time: <span>{{ event.event_date }}</span> | <span id="event-time">{{ event.start_time }}</span></p>
-    <p>Meet Point: <span id="event-meet-point">{{ event.meet_point }}</span></p>
-    <p>Expected Weather: <span>{{ event.get_expected_weather_display }}</span></p>
-</div>
+<div class="row">
+    <div class="event-details-card">
+        <div class="col s12 m12 l6">
+            <!-- event image -->
+            <img src="{{ event.image.url }}" alt="Picture of the sky at event location" class="details-event-image">
+        </div>
+        <div class="col s12 m8 l6">
+            <h2 id="event-title">{{ event.title }}</h2>
+            <p>{{ event.description }}</p>
+            <p>Date & Time: <span>{{ event.event_date }}</span> | <span id="event-time">{{ event.start_time }}</span>
+            </p>
+            <p>Meet Point: <span id="event-meet-point">{{ event.meet_point }}</span></p>
+            <p>Expected Weather: <span>{{ event.get_expected_weather_display }}</span></p>
+        </div>
+    </div>
 
-<!-- guide details -->
-<div class="guide-details-card">
-    <h3>Event Host</h3>
-    <img src="{{ event.guide.image }}" alt="Picture of this event's host" style="height: 200px; width: 200px;">
-    <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
-</div>
+    <!-- guide details -->
+    <div class="guide-details-card">
+        <div class="col s12 m4 l4">
+            <h3>Event Host</h3>
+            <img src="{{ event.guide.image.url }}" alt="Picture of this event's host" class="details-guide-image">
+            <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
+        </div>
+    </div>
 
-<!-- booking form -->
-<div class="booking-details-card">
-    <h3>Book your place</h3>
-    {% if user.is_authenticated %}
-    <form id="booking-form" action="#!">
-        <label for="booking-name">Name</label>
-        <input type="text" id="booking-name" name="name" placeholder="Full name" required>
+    <!-- booking form -->
+    <div class="booking-details-card">
+        <div class="col s12 m10 l8 push-m1">
+            <h3>Want to come along?</h3>
+            {% if user.is_authenticated %}
+            <form id="booking-form" action="#!">
+                <label for="booking-name">Name</label>
+                <input type="text" id="booking-name" name="name" placeholder="Full name" required>
 
-        <label for="booking-email">Email Address</label>
-        <input type="email" id="booking-email" name="email" placeholder="example123@email.com" required>
+                <label for="booking-email">Email Address</label>
+                <input type="email" id="booking-email" name="email" placeholder="example123@email.com" required>
 
-        <label for="booking-group-size">Group Size</label>
-        <select name="group-size" id="booking-group-size">
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
+                <label for="booking-group-size">Group Size</label>
+                <select name="group-size" id="booking-group-size">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
 
-        <!-- hidden inputs for emailJS values -->
-        <input type="hidden" name="event_title">
-        <input type="hidden" name="event_meet_point">
-        <input type="hidden" name="event_start_time">
+                <!-- hidden inputs for emailJS values -->
+                <input type="hidden" name="event_title">
+                <input type="hidden" name="event_meet_point">
+                <input type="hidden" name="event_start_time">
 
-        <button type="submit" value="submit">Book Now</button>
-    </form>
+                <button type="submit" value="submit">Book Now</button>
+            </form>
+            {% else %}
+            <p>Please Sign In or Create an Account to book a place at this event.</p>
+            {% endif %}
+        </div>
+    </div>
 
     <!-- booking submission modal -->
     <div id="booking-modal" class="modal">
@@ -57,49 +71,60 @@
             <a href="{% url 'events' %}" class="modal-close waves-effect waves-green btn-flat">Return to Events</a>
         </div>
     </div>
-    {% else %}
-    <p>Please Sign In or Create an Account to book a place at this event.</p>
-    {% endif %}
 </div>
 
 <hr>
 
-<!-- ask a question section -->
-<div class="questions-input-section">
-    <h3>Ask a Question</h3>
-    {% if user.is_authenticated %}
-    <form method="POST">
-        {{ question_form }}
-        {% csrf_token %}
-        <button type="submit">Submit Question</button>
-    </form>
-    {% else %}
-        <p>Please Sign In or Create an Account to ask questions about this event.</p>
-    {% endif %}
-</div>
-
-<hr>
-
-<!-- previously asked questions section -->
-<div class="previous-questions">
-    <h3>Previously Asked Questions</h3>
-    {% if asked_questions %}
-        {% for question in asked_questions %}
-            <div class="asked-question">
-                <p>{{ question.question_title }}</p>
-                <p>{{ question.question_details }}</p>
-            </div>
-            <div class="question-answer">
-            {% for answer in answers %}
-            {% if answer.question == question %}
-                <p>{{ answer.content }}</p>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <!-- ask a question section -->
+        <div class="questions-input-section">
+            <h3>Ask a Question</h3>
+            {% if user.is_authenticated %}
+            <form method="POST">
+                {{ question_form }}
+                {% csrf_token %}
+                <button type="submit">Submit Question</button>
+            </form>
+            {% else %}
+            <p>Please Sign In or Create an Account to ask questions about this event.</p>
             {% endif %}
-            {% endfor %}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="col s12 m12 l12">
+        <!-- previously asked questions section -->
+        <div class="previous-questions">
+            <h3>Previously Asked Questions</h3>
+            <div class="row">
+                {% if asked_questions %}
+                {% for question in asked_questions %}
+                <div class="col s12 m6 l6">
+                    <div class="asked-question">
+                        <p>{{ question.question_title }}</p>
+                        <p>{{ question.question_details }}</p>
+                    </div>
+                </div>
+                <div class="col s12 m6 l6">
+                    <div class="question-answer">
+                        {% for answer in answers %}
+                        {% if answer.question == question %}
+                        <p>{{ answer.content }}</p>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="col s12 m12 l12">
+                    <p>No one has asked any questions about this event yet.</p>
+                </div>
+                {% endif %}
             </div>
-        {% endfor %}
-    {% else %}
-    <p>No one has asked any questions about this event yet.</p>
-    {% endif %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}

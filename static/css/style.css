@@ -160,6 +160,21 @@ footer {
     background-color: #d32f2f;
 }
 
+/* event detail page */
+
+.details-event-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.details-guide-image {
+    width: 80%;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
 /* media queries */
 
 /* small screens */
