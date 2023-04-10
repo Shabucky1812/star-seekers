@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-
     
     function submitBooking(form) {
         form.addEventListener('submit', (e) => {

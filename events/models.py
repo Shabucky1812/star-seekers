@@ -46,7 +46,7 @@ class Question(models.Model):
         ordering = ['uploaded_on']
 
     def __str__(self):
-        return f'Question by {self.author} about {self.event}: {self.question_title}'
+        return f'Question about {self.event}: {self.question_title}'
 
 
 class Answer(models.Model):

@@ -25,11 +25,24 @@
                     <p class="event-card-title">{{ event.title }}</p>
                     <p class="event-card-date-and-time">{{ event.event_date }} | {{ event.start_time }}</p>
                 </a>
-            
+                
                 <!-- only show admins the edit and delete event options -->
                 {% if user.is_staff %}
                 <a href="{% url 'edit_event' event.id %}"><button class="button edit-button"><i class="material-icons">create</i></button></a>
-                <a href="{% url 'delete_event' event.id %}"><button class="button delete-button"><i class="material-icons">close</i></button></a>
+                <button data-target="delete-modal-{{ event.id }}" class="button delete-button modal-trigger"><i class="material-icons">close</i></button>
+                
+                <!-- delete confirmation modal -->
+                <div id="delete-modal-{{ event.id }}" class="modal">
+                    <div class="modal-content">
+                        <h4>Important!</h4>
+                        <p>Are you sure you want to delete this event: {{ event.title }}</p>
+                        <p>This action cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'delete_event' event.id %}" class="waves-effect btn-flat">Delete event</a>
+                        <a href="#" class="modal-close waves-effect btn-flat">Cancel</a>
+                    </div>
+                </div>
                 {% endif %}
             </div>
         </div>
