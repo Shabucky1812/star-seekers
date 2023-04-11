@@ -23,3 +23,8 @@ urlpatterns = [
     path('events/', include('events.urls')),
     path('accounts/', include('allauth.urls')),
 ]
+
+handler404 = 'star_seekers.views.handler404'
+handler500 = 'star_seekers.views.handler500'
+handler403 = 'star_seekers.views.handler403'
+handler405 = 'star_seekers.views.handler405'
