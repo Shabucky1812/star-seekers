@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col s12 center">
+        <h2><i class="material-icons">error</i> 405 - Method Not Allowed</h2>
+        <p>Sorry, something seems to have gone wrong!</p>
+        <hr>
+        <p>Let's get you home... <a href="{{% url 'home' %}}" class="btn">Return Home</a></p>
+    </div>
+</div>
+
+{% endblock %}
