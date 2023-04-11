@@ -2,65 +2,65 @@
 
 {% block content %}
 
+<!-- row for event details, guide details, and booking form -->
 <div class="row">
-    <div class="event-details-card">
-        <div class="col s12 m12 l6">
-            <!-- event image -->
-            <img src="{{ event.image.url }}" alt="Picture of the sky at event location" class="details-event-image">
-        </div>
-        <div class="col s12 m8 l6" id="event-details">
-            <h2 id="event-title">{{ event.title }}</h2>
-            <p>{{ event.description }}</p>
-            <p>Date & Time: <span>{{ event.event_date }}</span> | <span id="event-time">{{ event.start_time }}</span>
-            </p>
-            <p>Meet Point: <span id="event-meet-point">{{ event.meet_point }}</span></p>
-            <p>Expected Weather: <span>{{ event.get_expected_weather_display }}</span></p>
-        </div>
+    <!-- event image column -->
+    <div class="col s12 m12 l6">
+        <img src="{{ event.image.url }}" alt="Picture of the sky at event location" class="details-event-image">
+    </div>
+    <!-- event details column -->
+    <div class="col s12 m8 l6" id="event-details">
+        <h2>{{ event.title }}</h2>
+        <p>{{ event.description }}</p>
+        <p>Date & Time: {{ event.event_date }} | {{ event.start_time }}</p>
+        <p>Meet Point: {{ event.meet_point }}</p>
+        <p>Expected Weather: {{ event.get_expected_weather_display }}</p>
     </div>
 
-    <!-- guide details -->
-    <div class="guide-details-card">
-        <div class="col s12 m4 l4 center">
-            <h3>Event Host</h3>
-            <img src="{{ event.guide.image.url }}" alt="Picture of this event's host" class="details-guide-image">
-            <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
-        </div>
+    <!-- guide details column -->
+    <div class="col s12 m4 l4 center">
+        <h3>Event Guide</h3>
+        <img src="{{ event.guide.image.url }}" alt="Picture of this event's guide" class="details-guide-image">
+        <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
     </div>
 
-    <!-- booking form -->
-    <div class="booking-details-card">
-        <div class="col s12 m10 l8 push-m1">
-            <h3>Want to come along?</h3>
-            {% if user.is_authenticated %}
-            <form id="booking-form" action="#!">
-                <label for="booking-name">Name</label>
-                <input type="text" id="booking-name" name="name" placeholder="Full name" required>
+    <!-- booking column -->
+    <div class="col s12 m10 l8 push-m1">
+        <h3>Want to come along?</h3>
+        {% if user.is_authenticated %}
+        <!-- if user is authenticated, form is displayed -->
+        <form id="booking-form" action="#!">
+            <!-- name imput -->
+            <label for="booking-name">Name</label>
+            <input type="text" id="booking-name" name="name" placeholder="Full name" required>
 
-                <label for="booking-email">Email Address</label>
-                <input type="email" id="booking-email" name="email" placeholder="example123@email.com" required>
+            <!-- email input -->
+            <label for="booking-email">Email Address</label>
+            <input type="email" id="booking-email" name="email" placeholder="example123@email.com" required>
 
-                <label for="booking-group-size">Group Size</label>
-                <select name="group-size" id="booking-group-size">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
+            <!-- group size input -->
+            <label for="booking-group-size">Group Size</label>
+            <select name="group-size" id="booking-group-size">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
 
-                <!-- hidden inputs for emailJS values -->
-                <input type="hidden" name="event_title">
-                <input type="hidden" name="event_meet_point">
-                <input type="hidden" name="event_start_time">
+            <!-- hidden inputs for emailJS values -->
+            <input type="hidden" name="event_title">
+            <input type="hidden" name="event_meet_point">
+            <input type="hidden" name="event_start_time">
 
-                <button type="submit" value="submit" class="details-button">Book Now</button>
-            </form>
-            {% else %}
-            <p>Please Sign In or Create an Account to book a place at this event.</p>
-            {% endif %}
-        </div>
+            <button type="submit" value="submit" class="details-button">Book Now</button>
+        </form>
+        {% else %}
+        <!-- if user is not authenticated, they are shown this instead -->
+        <p>Please Sign In or Create an Account to book a place at this event.</p>
+        {% endif %}
     </div>
 
-    <!-- booking submission modal -->
+    <!-- booking submission modal, displayed on form submit -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <h4>You're all booked up!</h4>
@@ -75,55 +75,63 @@
 
 <hr>
 
+<!-- row for ask Q form and previous Q display -->
 <div class="row">
+    <!-- question form column -->
     <div class="col s12 m12 l12">
-        <!-- ask a question section -->
-        <div class="questions-input-section">
-            <h3>Ask a Question</h3>
-            {% if user.is_authenticated %}
-            <form method="POST">
-                {{ question_form }}
-                {% csrf_token %}
-                <button type="submit" class="details-button">Submit Question</button>
-            </form>
-            {% else %}
-            <p>Please Sign In or Create an Account to ask questions about this event.</p>
-            {% endif %}
-        </div>
+        <h3>Ask a Question</h3>
+        {% if user.is_authenticated %}
+        <!-- if user is authenticated, question form is displayed -->
+        <form method="POST">
+            {{ question_form }}
+            {% csrf_token %}
+            <button type="submit" class="details-button">Submit Question</button>
+        </form>
+        {% else %}
+        <!-- if user is not authenticated, this message is shown instead -->
+        <p>Please Sign In or Create an Account to ask questions about this event.</p>
+        {% endif %}
     </div>
 
+    <!-- previous questions column -->
     <div class="col s12 m12 l12">
-        <!-- previously asked questions section -->
-        <div class="previous-questions">
-            <h3>Previously Asked Questions</h3>
-            {% if asked_questions %}
-            {% for question in asked_questions %}
-            <div class="row asked-questions">
-                <div class="col s12 m6 l6">
-                    <div class="question">
-                        <p class="question-title">{{ question.question_title }}</p>
-                        <p>{{ question.question_details }}</p>
-                    </div>
-                </div>
-                <div class="col s12 m6 l6">
-                    <div class="answer">
-                        {% for answer in answers %}
-                        {% if answer.question == question %}
-                        <p>{{ answer.content }}</p>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
+        <h3>Previously Asked Questions</h3>
+        <!-- if any questions are asked, iterate through them and display them as shown below. -->
+        {% if asked_questions %}
+        {% for question in asked_questions %}
+        <div class="row asked-questions">
+            <!-- asked question column -->
+            <div class="col s12 m6 l6">
+                <div class="question">
+                    <p class="question-title">{{ question.question_title }}</p>
+                    <p>{{ question.question_details }}</p>
+                    <p class="right">Asked by {{ question.author }} on {{ question.uploaded_on }}</p>
                 </div>
             </div>
-            {% endfor %}
-            {% else %}
-            <div class="row">
-                <div class="col s12 m12 l12 center">
-                    <p>No one has asked any questions about this event yet.</p>
+            <!-- answer column -->
+            <div class="col s12 m6 l6">
+                <div class="answer">
+                    <!-- from the received list of answers, if any belong to the current question: display the answer here -->
+                    {% for answer in answers %}
+                    {% if answer.question == question %}
+                    <p>{{ answer.content }}</p>
+                    <p class="right">Answered by {{ answer.author }} on {{ answer.answered_on }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- if no answers belong to the question, javscript handles displaying the default 'no answer' text. -->
+                    <!-- this is because jinja2 does not support breaking loops by default. -->
                 </div>
             </div>
-            {% endif %}
         </div>
+        {% endfor %}
+        {% else %}
+        <!-- if the event has no asked questions, show this message instead -->
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <p>No one has asked any questions about this event yet.</p>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
 
