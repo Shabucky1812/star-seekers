@@ -48,6 +48,30 @@
         </div>
         {% endfor %}
     </div>
+    <!-- pagination controls -->
+    <div class="row">
+        <div class="col s12 m10 l8 center push-m1 push-l2">
+            <ul class="pagination">
+                
+                {% if events.has_previous %}
+                <li><a href="{% url 'events' events.previous_page_number %}"><i class="material-icons">chevron_left</i></a></li>
+                {% else %}
+                <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+                {% endif %}
+
+                <span>
+                    Page {{ events.number }} of {{ events.paginator.num_pages }}
+                </span>
+
+                {% if events.has_next %}
+                <li><a href="{% url 'events' events.next_page_number %}"><i class="material-icons">chevron_right</i></a></li>
+                {% else %}
+                <li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>
+                {% endif %}
+
+              </ul>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
