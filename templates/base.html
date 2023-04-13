@@ -33,7 +33,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger amber-text text-lighten-3 right"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
-                    <li><a href="{% url 'events' %}" class="amber-text text-lighten-3">Events</a></li>
+                    <li><a href="{% url 'events' 1 %}" class="amber-text text-lighten-3">Events</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
                     {% else %}
@@ -46,7 +46,7 @@
         <!-- navbar hamburger menu for smaller screens -->
         <ul class="sidenav blue darken-4" id="mobile-demo">
             <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
-            <li><a href="{% url 'events' %}" class="amber-text text-lighten-3">Events</a></li>
+            <li><a href="{% url 'events' 1 %}" class="amber-text text-lighten-3">Events</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
             {% else %}

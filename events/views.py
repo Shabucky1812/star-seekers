@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage
 from .models import Guide, Event, Question, Answer
 from .forms import EventForm, QuestionForm
 
@@ -16,10 +17,16 @@ def index(request):
     return render(request, template, context)
 
 
-def events(request):
+def events(request, page=1):
 
     today = timezone.now()
     upcoming_events = Event.objects.filter(event_date__gte=today)
+    paginator = Paginator(upcoming_events, 6)
+
+    try:
+        upcoming_events = paginator.page(page)
+    except EmptyPage:
+        upcoming_events = paginator.page(paginator.num_pages)
 
     template = 'events.html'
     context = {
