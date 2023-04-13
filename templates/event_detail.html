@@ -10,10 +10,10 @@
     </div>
     <!-- event details column -->
     <div class="col s12 m8 l6" id="event-details">
-        <h2>{{ event.title }}</h2>
+        <h2 id="event-title">{{ event.title }}</h2>
         <p>{{ event.description }}</p>
-        <p>Date & Time: {{ event.event_date }} | {{ event.start_time }}</p>
-        <p>Meet Point: {{ event.meet_point }}</p>
+        <p>Date & Time: {{ event.event_date }} | <span id="event-time">{{ event.start_time }}</span></p>
+        <p>Meet Point: <span id="event-meet-point">{{ event.meet_point }}</span></p>
         <p>Expected Weather: {{ event.get_expected_weather_display }}</p>
     </div>
 
