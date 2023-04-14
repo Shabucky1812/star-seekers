@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['star-seekers.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['star-seekers.herokuapp.com', '8000-shabucky1812-star-seeker-pyr2kqxqny.us2.codeanyapp.com']
 
 
 # Application definition
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/events/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
