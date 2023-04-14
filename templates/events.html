@@ -20,7 +20,11 @@
         <div class="col s12 m6 l4">
             <div class="event-card">
                 <a href="{% url 'event_detail' event.id %}">
+                    {% if 'placeholder' in event.image.url %}
+                    <img src="https://images.pexels.com/photos/746111/pexels-photo-746111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dark blue midnight sky with central glowing full moon." class="event-card-image">
+                    {% else %}
                     <img src="{{ event.image.url }}" alt="Starry sky" class="event-card-image">
+                    {% endif %}
                     <hr class="event-card-divider">
                     <p class="event-card-title">{{ event.title }}</p>
                     <p class="event-card-date-and-time">{{ event.event_date }} | {{ event.start_time }}</p>

@@ -6,7 +6,11 @@
 <div class="row">
     <!-- event image column -->
     <div class="col s12 m12 l6">
+        {% if 'placeholder' in event.image.url %}
+        <img src="https://images.pexels.com/photos/746111/pexels-photo-746111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dark blue midnight sky with central glowing full moon." class="details-event-image">
+        {% else %}
         <img src="{{ event.image.url }}" alt="Picture of the sky at event location" class="details-event-image">
+        {% endif %}
     </div>
     <!-- event details column -->
     <div class="col s12 m8 l6" id="event-details">
@@ -20,7 +24,11 @@
     <!-- guide details column -->
     <div class="col s12 m4 l4 center">
         <h3>Event Guide</h3>
+        {% if 'placeholder' in event.guide.image.url %}
+        <img src="https://images.pexels.com/photos/1136575/pexels-photo-1136575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Unknown guide against night sky" class="details-guide-image">
+        {% else %}
         <img src="{{ event.guide.image.url }}" alt="Picture of this event's guide" class="details-guide-image">
+        {% endif %}
         <p>{{ event.guide.name }} | {{ event.guide.get_role_display }}</p>
     </div>
 
