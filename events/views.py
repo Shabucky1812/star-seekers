@@ -7,6 +7,11 @@ from .forms import EventForm, QuestionForm
 
 
 def index(request):
+    """
+    Renders home page using index.html.
+
+    Passes 'Home' as the page title in context.
+    """
 
     template = 'index.html'
 
@@ -18,6 +23,13 @@ def index(request):
 
 
 def events(request, page=1):
+    """
+    Renders events page using events.html.
+
+    Passes upcoming events as 'events' and 'Events' as the page title
+    in context.
+    Uses Paginator to return 6 events per page.
+    """
 
     today = timezone.now()
     upcoming_events = Event.objects.filter(event_date__gte=today)
@@ -38,6 +50,21 @@ def events(request, page=1):
 
 
 def event_detail(request, event_id):
+    """
+    Renders event details page using event_detail.html.
+
+    Passes to context:
+    - question form from forms.py as 'question_form'
+    - relevant event as 'event'
+    - questions about the event (if any) as 'asked_questions'
+    - relevant question answers (if any) as 'answers'
+    - the event's title as the page title.
+
+    If a post request is made fromm a user submitting a question
+    then the view receives the form data and adds the author and event
+    info to the question before saving it to the db and redirecting the user
+    back to the same page.
+    """
 
     event = get_object_or_404(Event, id=event_id)
     try:
@@ -85,6 +112,19 @@ def event_detail(request, event_id):
 
 @staff_member_required
 def add_event(request):
+    """
+    Renders add event form using event_form.html. Only accessible to admins.
+
+    Passes to context:
+    - The empty event form from forms.py as 'event_form'
+    - 'Add Event' as the submit button text
+    - 'New Event' as the page title.
+
+    If a post request is made from the user attempting to create an event
+    then the view receives and validates the form data before saving it to
+    the db as a new Event instance. The user is redirected to the new event's
+    detail page.
+    """
 
     template = 'event_form.html'
     event_form = EventForm()
@@ -110,6 +150,19 @@ def add_event(request):
 
 @staff_member_required
 def edit_event(request, event_id):
+    """
+    Renders edit event from using event_form.html. Only accessible to admins.
+
+    Passes to context:
+    - The pre-filled event form using event info as 'event_form'
+    - 'Save Changes' as the submit button text
+    - 'Editing Event: (relevant event title)' as the page title
+
+    If a post request is made from the user attempting to save their event
+    changes then the view receives and validates the form data before updating
+    the existing event info. The user is redirected to the changed event's
+    detail page.
+    """
 
     template = 'event_form.html'
 
@@ -137,6 +190,11 @@ def edit_event(request, event_id):
 
 @staff_member_required
 def delete_event(request, event_id):
+    """
+    Deletes the event associated with the request. Only accessible to admins.
+
+    Redirects user to the events page (that they were already on).
+    """
     event = get_object_or_404(Event, id=event_id)
     event.delete()
 
@@ -147,6 +205,7 @@ def handler403(request, exception):
     """
     Render custom 403 template instead of default.
     """
+
     return render(request, '403.html', status=403)
 
 
@@ -154,6 +213,7 @@ def handler404(request, exception):
     """
     Render custom 404 template instead of default.
     """
+
     return render(request, '404.html', status=404)
 
 
@@ -161,6 +221,7 @@ def handler405(request, exception):
     """
     Render custom 405 template instead of default.
     """
+
     return render(request, '405.html', status=405)
 
 
@@ -168,4 +229,5 @@ def handler500(request):
     """
     Render custom 500 template instead of default.
     """
+
     return render(request, '500.html', status=500)
