@@ -34,6 +34,18 @@ label {
     color: #000;
 }
 
+/* restyle materialize datepicker */
+
+.datepicker-date-display {
+    background-color: #0d47a1;
+}
+
+.datepicker-date-display .date-text, .datepicker-date-display .year-text {
+    color: #ffe082;
+    font-family: 'Philosopher', serif;
+    font-style: italic;
+}
+
 /* login page */
 
 #login-checkbox {
