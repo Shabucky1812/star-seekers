@@ -34,16 +34,26 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBooking(bookingForm);
     };
 
-    // check for unanswered questions and provide default text
+    // check for unanswered questions and provide default text, the answerBlocks variable
+    // must be iterated through in this way as it is a NodeList not an array and cannot be handled as such.
     let answerBlocks = document.getElementsByClassName('answer');
     if (answerBlocks.length !== 0) {
+        // for every question on the page, if the question has not been answered, provide the default text instead.
         for (let i = 0; i < answerBlocks.length; i++) {
+            // if the answer block div has no children then it does not have an answer paragraph and therefore is unanswered.
             if (answerBlocks[i].children.length == 0) {
                 answerBlocks[i].innerHTML = `<p>Sorry! This question has not been answered yet, check back again later.</p>`
             }
         }
     }
     
+    /**
+     * Receives the booking form from the page and adds submit as en event listener.
+     * On submit, locates the confirmation modal and triggers it to appear. Finally,
+     * the function then calls the sendEmail function with the form data.
+     * 
+     * @param {object} form - the booking form from the event details page
+     */
     function submitBooking(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -54,6 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+    /**
+     * Receives the submitted form and uses it's data to send a confirmation email
+     * to the user using emailJS. Also uses additional event info from the details
+     * section of the page to further customise the email.
+     * 
+     * @param {object} form - the submitted booking form
+     */
     function sendEmail(form) {
         form.event_title.value = document.getElementById('event-title').innerText;
         form.event_start_time.value = document.getElementById('event-time').innerText;
