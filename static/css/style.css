@@ -4,6 +4,7 @@
 /* general */
 
 * {
+    /* configure default font settings */
     font-family: 'Kanit', sans-serif;
     font-weight: 200;
     color: #000;
@@ -17,16 +18,19 @@ body {
 }
 
 main {
+    /* flex values ensure footer sticks to the bottom of the page */
     flex: 1 0 auto;
     padding-bottom: 40px;
 }
 
 h1, h2, h3 {
+    /* configure default title font settings */
     font-family: 'Philosopher', serif;
     font-style: italic;
 }
 
 label {
+    /* darken form labels for contrast */
     color: #000;
 }
 
@@ -74,6 +78,7 @@ footer {
 /* Home page */
 
 .jumbotron {
+    /* position values ensure the bg image spans the entire width of the screen on all screen sizes */
     background-image: url('https://res.cloudinary.com/watermelon1812/image/upload/v1680886422/eeaetyrsqdkw9bcgcy7h.jpg');
     background-size: cover;
     position: absolute;
@@ -91,6 +96,7 @@ footer {
 }
 
 .main-title-background {
+    /* creates subtle blurred box between title text and bg image for better contrast */
     background-color: hsla(249, 75%, 60%, 0.1);
     border-radius: 20px;
     backdrop-filter: blur(1px);
@@ -116,6 +122,7 @@ footer {
 /* Events list page */
 
 .event-card {
+    /* targets each individual card created for an event */
     border: 1px solid #0d47a1;
     border-radius: 20px;
     outline: 3px solid #ffe082;
@@ -135,6 +142,7 @@ footer {
 }
 
 .event-card-divider {
+    /* styles the hr between the event title and image */
     width: 60%;
 }
 
@@ -149,6 +157,7 @@ footer {
 }
 
 #events-page-title {
+    /* ensures the add button can be displayed on the same 'line' as the title, not below */
     display: inline-block;
 }
 
@@ -166,10 +175,12 @@ footer {
 }
 
 .add-button:hover, .edit-button:hover {
+    /* changes bg color of add and edit buttons on hover, tells user the buttons are clickable */
     background-color: #00e676;
 }
 
 .delete-button:hover {
+    /* changes bg color of delete button on hover, tells user the button is clickable */
     background-color: #d32f2f;
 }
 
@@ -183,6 +194,7 @@ footer {
 }
 
 #event-details {
+    /* min-height ensures the details column doesn't allow the guide column to squeeze underneath and ruin the grid positioning */
     min-height: 360px;
     height: auto;
 }
@@ -195,6 +207,7 @@ footer {
 }
 
 .asked-questions {
+    /* styles each individual pair of asked questions and corresponding answers */
     width: 100%;
     height: auto;
     border: 1px dashed #0d47a1;
@@ -206,6 +219,7 @@ footer {
 }
 
 .details-button {
+    /* styles the book event and submit Q buttons on the details page */
     width: auto;
     height: 30px;
     margin: 10px 0;
