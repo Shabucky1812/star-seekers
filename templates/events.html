@@ -20,6 +20,7 @@
         <div class="col s12 m6 l4">
             <div class="event-card">
                 <a href="{% url 'event_detail' event.id %}">
+                    <!-- if no image is assigned currently selected as the event_image, show this default instead -->
                     {% if 'placeholder' in event.image.url %}
                     <img src="https://images.pexels.com/photos/746111/pexels-photo-746111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dark blue midnight sky with central glowing full moon." class="event-card-image">
                     {% else %}
@@ -57,6 +58,7 @@
         <div class="col s12 m10 l8 center push-m1 push-l2">
             <ul class="pagination">
                 
+                <!-- if there is a previous page before the current one, allow the chevron to link to the previous page -->
                 {% if events.has_previous %}
                 <li><a href="{% url 'events' events.previous_page_number %}"><i class="material-icons">chevron_left</i></a></li>
                 {% else %}
@@ -67,6 +69,7 @@
                     Page {{ events.number }} of {{ events.paginator.num_pages }}
                 </span>
 
+                <!-- if there is a next page after the current one, allow the chevron to link to the next page -->
                 {% if events.has_next %}
                 <li><a href="{% url 'events' events.next_page_number %}"><i class="material-icons">chevron_right</i></a></li>
                 {% else %}

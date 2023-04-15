@@ -193,12 +193,12 @@ def delete_event(request, event_id):
     """
     Deletes the event associated with the request. Only accessible to admins.
 
-    Redirects user to the events page (that they were already on).
+    Redirects user to the home page.
     """
     event = get_object_or_404(Event, id=event_id)
     event.delete()
 
-    return redirect(reverse('events'))
+    return redirect(reverse('home'))
 
 
 def handler403(request, exception):

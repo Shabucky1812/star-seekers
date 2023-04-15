@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Star Seekers is a social group of lovers of the night sky.">
+    <meta name="keywords" content="stars, moon, night, sky, dark, late, event, events, local events">
     <!-- favicon -->
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <!-- materialize css -->
@@ -24,6 +26,7 @@
         })();
     </script>
 
+    <!-- page title, uses passed in values from context to customise for each page -->
     <title>Star Seekers | {{ page_title }}</title>
 </head>
 <body>
@@ -36,10 +39,11 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
                     <li><a href="{% url 'events' 1 %}" class="amber-text text-lighten-3">Events</a></li>
+                    <!-- If user is already signed in, show sign-out link. If not, show sign-in link-->
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
                     {% else %}
-                    <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In</a></li>
+                    <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In/Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -52,7 +56,7 @@
             {% if user.is_authenticated %}
             <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
             {% else %}
-            <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In</a></li>
+            <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In/Register</a></li>
             {% endif %}
         </ul>
     </header>
@@ -71,6 +75,7 @@
         <div class="container">
             <p class="footer-text">Check us out on our socials:</p>
             <div class="footer-links">
+                <!-- social links -->
                 <a href="https://facebook.com/" target="_blank" aria-label="Link to Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://twitter.com/" target="_blank" aria-label="Link to Twitter"><i class="fa-brands fa-twitter"></i></a>
                 <a href="https://instagram.com/" target="_blank" aria-label="Link to Instagram"><i class="fa-brands fa-instagram"></i></a>
