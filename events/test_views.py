@@ -15,7 +15,7 @@ class TestViews(TestCase):
         Initializes test user account and test data.
         """
 
-        self.user = User.objects.create(username='test_user')
+        self.user = User.objects.create_superuser(username='test_user')
         self.user.set_password('test_password')
         self.user.save()
 
@@ -47,3 +47,47 @@ class TestViews(TestCase):
         response = self.client.get(reverse('events', args=[1]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'events.html')
+
+    def test_get_event_detail_page(self):
+        """
+        Tests that the event detail page is retrieved correctly,
+        using the event_detail.html template
+        """
+
+        response = self.client.get(reverse('event_detail', args=[1]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'event_detail.html')
+
+    def test_get_add_event_page(self):
+        """
+        Tests that the add event page is retrieved correctly,
+        using the event_form.html template
+        """
+
+        self.client.login(username='test_user', password='test_password')
+        response = self.client.get('/events/add_event/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'event_form.html')
+
+    def test_get_edit_event_page(self):
+        """
+        Tests that the edit event page is retrieved correctly,
+        using the event_form.html template
+        """
+
+        self.client.login(username='test_user', password='test_password')
+        response = self.client.get(reverse('edit_event', args=[1]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'event_form.html')
+
+    def test_delete_event(self):
+        """
+        Tests that the delete_event view functions correctly and
+        redirects the user to the home page.
+        """
+
+        self.client.login(username='test_user', password='test_password')
+        response = self.client.get(reverse('delete_event', args=[1]))
+        self.assertRedirects(response, '/')
+        events = Event.objects.filter(id=self.event.id)
+        self.assertEqual(len(events), 0)
