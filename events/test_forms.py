@@ -56,3 +56,24 @@ class TestEventForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('meet_point', form.errors.keys())
         self.assertEqual(form.errors['meet_point'][0], 'This field is required.')
+
+    def test_event_guide_is_required(self):
+        """
+        Tests that the event's guide field is required
+        """
+
+        form = EventForm({'guide': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('guide', form.errors.keys())
+        self.assertEqual(form.errors['guide'][0], 'This field is required.')
+
+    def test_fields_are_explicit_in_event_metaclass(self):
+        """
+        Tests that fields are explicit in event metaclass
+        """
+
+        form = EventForm()
+        self.assertEqual(form.Meta.fields, ('title', 'description', 'image',
+                                            'event_date', 'start_time',
+                                            'meet_point', 'expected_weather',
+                                            'guide'))
