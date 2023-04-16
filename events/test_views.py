@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
-from .models import Guide, Event
+from .models import Guide, Event, Question, Answer
 
 
 class TestViews(TestCase):
@@ -28,6 +28,19 @@ class TestViews(TestCase):
             guide=self.guide
         )
 
+        self.question = Question.objects.create(
+            author=self.user,
+            event=self.event,
+            question_title='Test Question',
+            question_details='Test details'
+        )
+
+        self.answer = Answer.objects.create(
+            author=self.user,
+            question=self.question,
+            content='test answer'
+        )
+
     def test_get_home_page(self):
         """
         Tests that the home page is retrieved correctly,
@@ -45,6 +58,10 @@ class TestViews(TestCase):
         """
 
         response = self.client.get(reverse('events', args=[1]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'events.html')
+
+        response = self.client.get(reverse('events', args=[10]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'events.html')
 

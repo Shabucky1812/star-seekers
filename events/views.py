@@ -60,25 +60,20 @@ def event_detail(request, event_id):
     - relevant question answers (if any) as 'answers'
     - the event's title as the page title.
 
-    If a post request is made fromm a user submitting a question
+    If a post request is made from a user submitting a question
     then the view receives the form data and adds the author and event
     info to the question before saving it to the db and redirecting the user
     back to the same page.
     """
 
     event = get_object_or_404(Event, id=event_id)
-    try:
-        event_questions = Question.objects.filter(event=event)
-    except Question.DoesNotExist:
-        event_questions = None
+    event_questions = Question.objects.filter(event=event)
 
     answers = []
     if event_questions:
         for question in event_questions:
-            try:
-                answer = Answer.objects.filter(question=question)
-            except Answer.DoesNotExist:
-                answer = None
+
+            answer = Answer.objects.filter(question=question)
 
             if answer:
                 answers.append(answer[0])
