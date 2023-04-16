@@ -77,3 +77,37 @@ class TestEventForm(TestCase):
                                             'event_date', 'start_time',
                                             'meet_point', 'expected_weather',
                                             'guide'))
+
+
+class TestQuestionForm(TestCase):
+    """
+    Tests for the fields of the Question Form
+    """
+
+    def test_question_title_is_required(self):
+        """
+        Tests that the question's title field is required
+        """
+
+        form = QuestionForm({'question_title': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('question_title', form.errors.keys())
+        self.assertEqual(form.errors['question_title'][0], 'This field is required.')
+
+    def test_question_details_is_required(self):
+        """
+        Tests that the question's details field is required
+        """
+
+        form = QuestionForm({'question_details': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('question_details', form.errors.keys())
+        self.assertEqual(form.errors['question_details'][0], 'This field is required.')
+
+    def test_fields_are_explicit_in_question_metaclass(self):
+        """
+        Tests that fields are explicit in question metaclass
+        """
+
+        form = QuestionForm()
+        self.assertEqual(form.Meta.fields, ('question_title', 'question_details'))
