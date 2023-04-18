@@ -34,18 +34,20 @@
         <!-- Navigation bar -->
         <nav>
             <div class="nav-wrapper blue darken-4">
-                <a href="{% url 'home' %}" class="brand-logo amber-text text-lighten-3">Star Seekers</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger amber-text text-lighten-3 right"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
-                    <li><a href="{% url 'events' 1 %}" class="amber-text text-lighten-3">Events</a></li>
-                    <!-- If user is already signed in, show sign-out link. If not, show sign-in link-->
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
-                    {% else %}
-                    <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In/Register</a></li>
-                    {% endif %}
-                </ul>
+                <div class=restrict-max-width>
+                    <a href="{% url 'home' %}" class="brand-logo amber-text text-lighten-3">Star Seekers</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger amber-text text-lighten-3 right"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{% url 'home' %}" class="amber-text text-lighten-3">Home</a></li>
+                        <li><a href="{% url 'events' 1 %}" class="amber-text text-lighten-3">Events</a></li>
+                        <!-- If user is already signed in, show sign-out link. If not, show sign-in link-->
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'account_logout' %}" class="amber-text text-lighten-3">Sign Out</a></li>
+                        {% else %}
+                        <li><a href="{% url 'account_login' %}" class="amber-text text-lighten-3">Sign In/Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </nav>
 
@@ -82,7 +84,7 @@
                 <a href="https://tiktok.com/" target="_blank" aria-label="Link to TikTok"><i class="fa-brands fa-tiktok"></i></a>
             </div>
         </div>
-        <div class="footer-copyright">
+        <div class="footer-copyright restrict-max-width">
             © 2023 Star Seekers
         </div>
     </footer>

@@ -34,6 +34,13 @@ label {
     color: #000;
 }
 
+.restrict-max-width {
+    /* sets the max width of the elements that exist outside of the main container */
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* restyle materialize datepicker */
 
 .datepicker-date-display {
