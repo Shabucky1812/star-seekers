@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 from .models import Guide, Event, Question, Answer
+from .forms import EventForm
 
 
 class TestViews(TestCase):
@@ -108,3 +109,15 @@ class TestViews(TestCase):
         self.assertRedirects(response, '/')
         events = Event.objects.filter(id=self.event.id)
         self.assertEqual(len(events), 0)
+
+    def test_posting_a_question(self):
+        """
+        Tests that the post functionality of the event_detail view
+        functions correctly and lets the user post a question.
+        """
+
+        self.client.login(username='test_user', password='test_password')
+        response = self.client.post(reverse('event_detail', args=[1]), {
+            'question_title': 'New Q', 'question_details': 'new details'
+        })
+        self.assertRedirects(response, reverse('event_detail', args=[1]))
