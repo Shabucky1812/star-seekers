@@ -81,7 +81,7 @@ def event_detail(request, event_id):
     template = 'event_detail.html'
     question_form = QuestionForm()
 
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         question_form = QuestionForm(request.POST)
 
         if question_form.is_valid():
