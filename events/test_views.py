@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 from .models import Guide, Event, Question, Answer
-from .forms import EventForm
 
 
 class TestViews(TestCase):
@@ -24,8 +23,11 @@ class TestViews(TestCase):
 
         self.event = Event.objects.create(
             title='Test Event',
+            description='test description',
             event_date='2023-04-30',
             start_time='20:00',
+            meet_point='test location',
+            expected_weather=0,
             guide=self.guide
         )
 
@@ -121,3 +123,45 @@ class TestViews(TestCase):
             'question_title': 'New Q', 'question_details': 'new details'
         })
         self.assertRedirects(response, reverse('event_detail', args=[1]))
+
+    def test_adding_a_new_event(self):
+        """
+        Tests that the post functionality of the add_event view functions
+        correctly and lets the user create a new event.
+        """
+
+        password = 'test_pass'
+        test_admin = User.objects.create_superuser('admin', password)
+
+        self.client.login(username=test_admin.username, password=password)
+
+        form = {
+            'title': 'Testing event creation',
+            'description': 'test test test',
+            'event_date': '2023-11-11',
+            'start_time': '20:30',
+            'meet_point': 'test locale',
+            'expected_weather': 0,
+            'guide': self.guide,
+        }
+
+        response = self.client.post(reverse('add_event'), data=form, follow=True)
+        self.assertRedirects(response, '/events/2')
+
+    def test_editing_an_event(self):
+        """
+        Tests that the post functionality of the edit_event view functions
+        correctly and lets the user edit and event.
+        """
+
+        event = Event.objects.filter(id=1)
+
+        password = 'test_pass'
+        test_admin = User.objects.create_superuser('admin', password)
+        self.client.login(username=test_admin.username, password=password)
+
+        response = self.client.post(reverse('edit_event', args=[1]), {'title': 'updated title'})
+        self.assertRedirects(response, reverse('event_detail', args=[1]))
+
+        updated_event = Event.objects.get(id=1)
+        self.assertEqual(updated_event.title, 'updated title')
