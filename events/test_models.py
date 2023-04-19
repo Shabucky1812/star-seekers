@@ -49,3 +49,17 @@ class TestModels(TestCase):
         """
 
         self.assertEqual(str(self.event), 'Test Event')
+
+    def test_question_string_method(self):
+        """
+        Tests that the Question model's string method returns the expected value
+        """
+
+        self.assertEqual(str(self.question), 'Question about Test Event: Test Question')
+
+    def test_answer_string_method(self):
+        """
+        Tests that the Answer model's string method returns the expected value
+        """
+
+        self.assertEqual(str(self.answer), 'Answer for Question: Test Question')
