@@ -79,29 +79,44 @@ During the planning process of this project, the following wireframes were creat
     ![Template wireframes for home page on desktop, tablet, mobile.](/documentation/home_page.png)
 
 2. Events Page:  
-    [Template wireframes for events page on desktop, tablet, mobile.](/documentation/events_page.png)
+    ![Template wireframes for events page on desktop, tablet, mobile.](/documentation/events_page.png)
 
 3. Event Detail Page:  
-    [Template wireframes for event detail page on desktop, tablet, mobile.](/documentation/event_detail_page.png)
+    ![Template wireframes for event detail page on desktop, tablet, mobile.](/documentation/event_detail_page.png)
 
 4. Register Account Page:  
-    [Template wireframes for register account page on desktop, tablet, mobile.](/documentation/register_account_page.png)
+    ![Template wireframes for register account page on desktop, tablet, mobile.](/documentation/register_account_page.png)
 
 5. Log In Page:  
-    [Template wireframes for log in page on desktop, tablet, mobile.](/documentation/log_in_page.png)
+    ![Template wireframes for log in page on desktop, tablet, mobile.](/documentation/log_in_page.png)
 
 6. Log Out Page:  
-    [Template wireframes for log out page on desktop, tablet, mobile.](/documentation/log_out_page.png)
+    ![Template wireframes for log out page on desktop, tablet, mobile.](/documentation/log_out_page.png)
 
 ### Entity-Relationship Diagram:  
 
-For planning the data model for Star Seekers, I created this ER diagram to demonstrate how each of the custom models for the website would interact and what fields they should have.  
+For planning the data model for Star Seekers, I created this ER diagram (using [diagrams.net](https://www.diagrams.net/)) to demonstrate how each of the custom models for the website would interact and what fields they should have.  
 
 ![Entity-Relationship Diagram for custom star seekers models.](/documentation/entity-relationship.png)
 
 ## Design
 
-colour scheme, typography
+### Colour Scheme:  
+
+Star Seekers uses the following colour palette, generated using [Coolors](https://coolors.co/):  
+![Star Seekers colour palette.](/documentation/colour-palette.png)  
+This palette is inspired by the shades of the night sky. The rich blue used is the main colour of the site, it's purpose is to evoke the inviting coziness of the night and it contrasts well with the strong yellow used. The subtle pink tone is used as the website's background colour because it provides more visual interest than a plain grey or white and reminds me of the pink hues in a sunrise.
+
+### Typography:
+
+The website uses the 2 fonts from [Google Fonts](https://fonts.google.com/) seen below:  
+- Kanit:  
+    ![The Kanit font used for most body text](/documentation/kanit_font.png)  
+    This font is used throughout the website with a font weight of 100. I chose this font because it is simple yet effective and pleasing, and it looks nice alongside the Philosopher font.  
+
+- Philosopher (italic):
+    ![The Philosopher font used for the site's title text](/documentation/philosopher_font.png)  
+    This font is used for all of Star Seekers title text as well as the logo present in the navbar. This font was selected because it is interesting in a subtle way and it looks especially 'flowy' when combined with the multiple 's' letters used in the title of 'Star Seekers'.  
 
 ## Features 
 
