@@ -71,6 +71,28 @@ Admins can also use the website to create new events, edit existing events, and 
 - US18 - Answer User Questions
     - As a Site Admin I can respond to user questions so that the site users receive any additional info they need.
 
+### Wireframes:  
+
+During the planning process of this project, the following wireframes were created (using [Balsamiq](https://balsamiq.com/)) to mock out the website's front-end.
+
+1. Home Page:  
+    ![Template wireframes for home page on desktop, tablet, mobile.](/documentation/home_page.png)
+
+2. Events Page:
+    [Template wireframes for events page on desktop, tablet, mobile.](/documentation/events_page.png)
+
+3. Event Detail Page:
+    [Template wireframes for event detail page on desktop, tablet, mobile.](/documentation/event_detail_page.png)
+
+4. Register Account Page:
+    [Template wireframes for register account page on desktop, tablet, mobile.](/documentation/register_account_page.png)
+
+5. Log In Page:
+    [Template wireframes for log in page on desktop, tablet, mobile.](/documentation/log_in_page.png)
+
+6. Log Out Page:
+    [Template wireframes for log out page on desktop, tablet, mobile.](/documentation/log_out_page.png)
+
 ## Design
 
 colour scheme, typography
