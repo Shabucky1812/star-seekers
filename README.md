@@ -16,7 +16,60 @@ Admins can also use the website to create new events, edit existing events, and 
 
 ## UX
 
-user stories and wireframes
+### User Stories:  
+- US01 - Create Account
+    - As a New Site User I can sign up for a new account so that I can access the sites main features.
+
+- US02 - Positive First Impression
+    - As a New Site User I can easily locate and read key information about the website so that I can quickly understand what the purpose of the site is and how to use it.
+
+- US03 - Logging In
+    - As a Site User/Admin I can log in to my account so that I can access the sites features.
+
+- US04 - Logging Out
+    - As a Site User/Admin I can log out of my account so that people using the same device as me can access their own account.
+
+- US05 - View Events
+    - As a Site User I can coherently view upcoming events so that I can see which events interest me.
+
+- US06 - View Event Details
+    - As a Site User I can click on an event so that I can view additional information about the event and access the events Q&A section and booking.
+
+- US07 - Additional Event Info
+    - As a Site User I can view important event info (such as time, date, weather, etc..) so that I can see if the event interests/suits me.
+
+- US08 - View Event Guide
+    - As a Site User I can view an event's guide so that I can see who is hosting the event.
+
+- US09 - Book Event
+    - As a Site User I can book my place at an event so that I can attend the event.
+
+- US10 - Asking Questions
+    - As a Site User I can ask the admins questions regarding a specific event so that I can receive additional info about an event.
+
+- US11 - Booking Confirmation
+    - As a Site User I can receive confirmation of my booking so that I can ensure I have correctly booked the event.
+
+- US12 - Add Events
+    - As a Site Admin I can add new events so that site users can view and book new events.
+
+- US13 - Update Events
+    - As a Site Admin I can update an event's details so that any necessary event changes can be made.
+
+- US14 - Delete Events
+    - As a Site Admin I can delete events so that cancelled or finished events are not displayed to the site users.
+
+- US15 - Add Guides
+    - As a Site Admin I can add new guides so that new guides can be linked to their events.
+
+- US16 - Update Guides
+    - As a Site Admin I can update guide details so that guide information can be changed if needed.
+
+- US17 - Delete Guides
+    - As a Site Admin I can delete guide profiles so that ex-guides can no longer be selected as event host.
+
+- US18 - Answer User Questions
+    - As a Site Admin I can respond to user questions so that the site users receive any additional info they need.
 
 ## Design
 
