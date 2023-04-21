@@ -118,9 +118,32 @@ The website uses the 2 fonts from [Google Fonts](https://fonts.google.com/) seen
     ![The Philosopher font used for the site's title text](/documentation/philosopher_font.png)  
     This font is used for all of Star Seekers title text as well as the logo present in the navbar. This font was selected because it is interesting in a subtle way and it looks especially 'flowy' when combined with the multiple 's' letters used in the title of 'Star Seekers'.  
 
-## Features 
+## Features  
 
-features
+### Existing Features:  
+- __F01 - Header__  
+    ![The header for the Star Seekers website.](/documentation/features/header.png)  
+    The first feature of the website is the header, seen above. The header is important for consistency as users expect modern websites to have one. As usual, the header contains the website logo and the internal navigation links. Additionally, to maintain responsive design, the nav links become a hamburger menu at smaller screen sizes to stop the content getting squashed. Links are present for: The home page, the events page, and the login page (if the user is already logged in then this link becomes a logout link instead). The header is valuable to the user because it lets them traverse the website in a consistent and expected way.  
+
+- __F02 - Footer__  
+    ![The footer of the Star Seekers website.](/documentation/features/footer.png)  
+    This is the footer for the website. It's purpose is once again to enforce a good user experience by meeting expectations of what a modern website should look like. The footer contains the website's important copyright info, and some links to Star Seekers socials. The footer is valuable to the user because it combines with the header to make the site more inviting, and tells the user where else they can go to learn more about Star Seekers.  
+
+- __F03 - Home Page__  
+    ![The home page of the Star Seekers website.](/documentation/features/home.png)  
+    The next feature is the home/landing page. As this is the very first thing a user sees upon loading the website, it is important that the home page is eye-catching without being overwhelming. To achieve this effect, the home page features a simple title, hero image, and about section. The about section contains small snippets of info about Star Seekers, what the website is all about, and what to do next if interested. The home page is valuable to the user because it gently introduces them to the site and points the in the right direction.  
+
+- __F04 - Log In Form__  
+    ![The site's login form.](/documentation/features/login.png)  
+    Upon clicking the 'Sign In/Register' link, the user is brought to a log in page displaying this form. If the user already has an account then they can enter their account details here to sign in. Importantly, if the user does not yet have an account, they can use the link provided to head to the register account screen instead. This login form is valuable to the user because it lets them sign in to their account and interact more with the website's features.
+
+- __F05 - Register Account Form__  
+    ![The site's register account form.](/documentation/features/register.png)  
+    Should the user click on the previous link on the login form, they will be brought to this register account form instead. This form is valuable to a new user because it lets them create an account to become part of the Star Seekers community.
+
+
+### Future Implementations:  
+
 
 ## Technologies Used
 
