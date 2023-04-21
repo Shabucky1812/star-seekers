@@ -139,8 +139,7 @@ The website uses the 2 fonts from [Google Fonts](https://fonts.google.com/) seen
 
 - __F05 - Register Account Form__  
     ![The site's register account form.](/documentation/features/register.png)  
-    Should the user click on the previous link on the login form, they will be brought to this register account form instead. This form is valuable to a new user because it lets them create an account to become part of the Star Seekers community.
-
+    Should the user click on the previous link on the login form, they will be brought to this register account form instead. This form is valuable to a new user because it lets them create an account to become part of the Star Seekers community.  
 
 ### Future Implementations:  
 
