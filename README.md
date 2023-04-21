@@ -141,6 +141,26 @@ The website uses the 2 fonts from [Google Fonts](https://fonts.google.com/) seen
     ![The site's register account form.](/documentation/features/register.png)  
     Should the user click on the previous link on the login form, they will be brought to this register account form instead. This form is valuable to a new user because it lets them create an account to become part of the Star Seekers community.  
 
+- __F06 - Log Out Form__  
+    ![The site's logout confirmation form.](/documentation/features/logout.png)  
+    Once the user has successfullt logged in, the 'Sign Out' link will become available in the site's header. Upon clicking that link, the user will be brought to the logout page containing this small log out confirmation. Should the user wish to log out, all they have to do is press the button and they will be redirected back to the home page. This is valauble to the user because it lets them sign out of their account and let other device users sign in to theirs instead.  
+
+- __F07 - Upcoming Events__  
+    ![Star Seeker's upcoming events list.](/documentation/features/events.png)  
+    Should the user click on the 'Events' link in the header, they will be brought to this upcoming events list. This page dislays all of the upcoming events created by admins in a list format. Only events with event dates that are yet to come are shown to the user and the displayed events are ordered from closest to furthest away by event date. Each event is displayed in the form a an event 'card' which is clickable. Clicking on an event card will take the user to the event's details page. Each card displays the event's main image, title, date, and start time. Visible on the screenshot above is the add event button (near the top-right) as well as the edit event and delete event buttons (present at the bottom of each card). It is important to note that these buttons are only available to admins, a regular user will not be able to see or user them. Clicking on and add button takes the admin to the add event form, the edit button allows them to edit the relevant event, and the delete button displays a delete confirmation modal (all visible as upcoming features below). Another key detail of the upcoming events page is that it paginates automatically for every 6 events. In the image above, only 3 events are available so the pagination bar at the bottom of the screen reads: 'Page 1 of 1'. Should there be more than 6 upcoming events, this bar will allow the user to traverse between the available pages to view them. For example, if there was 16 upcoming events, the pagination bar would read: 'Page 1 of 3' and teh chevron icons woul be clickable to move forward and backwards through the pages. The upcoming events list is valuable to the user because it allows them to view upcoming events in a streamlined fashion, this feature is also important for site admins as most of the admin functionality is accessed from this page.  
+
+- __F08 - Event Details__  
+    ![An event's additional details.](/documentation/features/details.png)  
+    Once the user has decided on an event they are interested in and clicked on it's card, they will be taken to the event's more detailed page. The first section of this page is the event details section seen above. This section features: the event image, the event title, a small event description, the event's date and start time, the meet point for attendees of the event, expected weather on the night, and a small profile about the host/guide of the event. Using all of this information, a user can decide whether they would like to book their place at the event or if they would like to look at some others instead. This section is valuable to the user because it provides all of the basic information they need to know about an event in a clean and efficient manner.  
+
+- __F09 - Booking Form__  
+    ![The form used to book a place at an Event.](/documentation/features/booking.png)  
+    If a user would like to book a place at the event, they simply need to fill out this form below the details. The form is clearly marked out with the title text 'Want to come along?' and contains fields for the user's name, email address, and group size between 1 and 4. Once a user has filled out the form with valid data and pressed the submit button, they will be shown the following confirmation modal:  
+    ![Booking confirmation modal.](/documentation/features/booking-modal.png)  
+    The user can then press the 'Return to Events' button to be taken back to the upcoming events list. Also, as prompted by the modal, the user should receive a confirmation email like the one below:  
+    ![Booking confirmation email.](/documentation/features/booking-email.png)  
+    The booking form is valuable to the user because it lets them easily book there spot at an event and follows up with sufficient confirmation so that the user knows they have submitted the form correctly, and is certain when and where the event is.  
+
 ### Future Implementations:  
 
 
