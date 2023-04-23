@@ -240,7 +240,7 @@ To clone this repository paste `git clone https://github.com/Shabucky1812/star-s
 ### Configuring environment variables:  
 - Firstly, you need to install the project dependencies listed in the requirements.txt file. To do this paste `pip install -r requirements.txt` into the terminal and hit enter.
 - Next, you need to create a new file at lowest level of your workspace (the same level as README.md) called **env.py**.
-- IMPORTANT: the env.py file will be used to store hidden variables such as your SECRET_KEY, to prevent any security issues you must ensure that your workspace contains a **.gitignore** file and that **env.py** is listed within it. This will ensure that your env.py file is not pushed to GitHub and made publically available.
+- IMPORTANT: the env.py file will be used to store hidden variables such as your SECRET_KEY, to prevent any security issues you must ensure that your workspace contains a **.gitignore** file and that **env.py** is listed within it. This will ensure that your env.py file is not pushed to GitHub and made publicly available.
 - Within **env.py**, import the os module by adding `import os` at the top of the file.
 - Now, you need to create 4 environment variables using this code format: `os.environ[_*variable_name*_] = '_*value*_'`. The 4 _*variable_name*_'s should be: **DATABASE_URL**, **SECRET_KEY**, **CLOUDINARY_URL**, and finally **DEVELOPMENT**.
 - As for the _*values*_, leave **DATABASE_URL** and **CLOUDINARY_URL** blank for now. Set the _*value*_ of the **DEVELOPMENT** variable to '1' and set the **SECRET_KEY** variable to any random string of characters you like, do not share this value with anyone.
@@ -272,7 +272,26 @@ To clone this repository paste `git clone https://github.com/Shabucky1812/star-s
     - Commit your changes using `git commit -m 'commit_message_here'`.
     - Finally, push your changes to your main GitHub repository using `git push`.
 
-deploy
+### Deploy with Heroku:  
+- Lastly, follow these steps to deploy the website to Heroku.  
+- Use this link to log-in/sign-up to [Heroku](https://id.heroku.com/login).
+- From the Heroku dashboard, select the **New** dropdown from the top-right, and then click **Create new app**.
+- Enter a name into the **App name** input, select your region from the **Region** dropdown, and then click **Create app**.
+- From the tabs near the top of the screen, select **Settings** and scroll down to the **Config Vars** sub-heading.
+- Press **Reveal Config Vars**.
+- You now need to re-create the following variables from your **env.py** file as config vars: **CLOUDINARY_URL**, **DATABASE_URL**, and **SECRET_KEY**.
+- Enter these variables as keys for each config var and paste the values from your **env.py** file as the matching values.
+- Now, scroll back up and select the **Deploy** tab.
+- Under the **Deployment method** sub-heading, select **GitHub**.
+- Search for the GitHub repo for your application and then click **Connect**.
+- You can now deploy your application in two ways:
+    - Select **Enable Automatic Deploys** to automatically deploy your program. This means that whenever a change is pushed, Heroku will automatically update your live app.
+    - This project was manually deployed by selecting **Deploy Branch** under the **Manual Deploy** sub-heading. A manually deployed site will only update with new pushes when re-deployed next.
+- Once Heroku has deployed your application, it will present you with a link to the live site.
+- IMPORTANT: After your first deploy, Heroku may automatically add its Heroku Postgres add-on to your application. This add-on is not free and you will be charged if you leave it. To prevent this from happening after your first deploy:
+    - Head over to your application's **Resources** tab.
+    - Check under the _*Add-ons*_ subheading for the Heroku Postgres add-on.
+    - If the add-on is present, delete it to avoid being charged. The website will still function because of ElephantSQL.
 
 ## Testing
 
@@ -280,4 +299,13 @@ Please find the testing write-up for this project in [this Testing Document](tes
 
 ## Credits
 
-content and acknowledgements
+### Contents  
+- All of the code for this website was written by me, [Shaun Buck](https://github.com/Shabucky1812).
+- Inspiration for creating pagination using function based views was taken from [dontrepeatyourself.org](https://dontrepeatyourself.org/post/django-pagination-with-function-based-view/).
+
+### Acknowledgements  
+This was an incredibly rewarding and confidence-boosting project to work on. Going into planning, I had a million questions about Django and I was feeling very overwhelmed by the looming scope. Luckily however, I have been amazed at how much I have learnt taking Star Seekers from inception to completion! Despite the occassional challenge, I feel as though this project has gone smoothly and I am so proud of what I have achieved. I completely reworked how I manage my time whilst working for this website and my productivity has absolutely soared. Whilst I know the end-product isn't perfect, this project has taught me to trust myself, and completely re-invigorated my love for taking on challenges headfirst. I am truly thankful for Star Seekers.
+
+Additionaly, I would like to extend a huge thank you to my mentor Brian Macharia for all of his input to this project and his patience in me. Thank you so much!
+
+I hope you found this README insightful, have a great day.
