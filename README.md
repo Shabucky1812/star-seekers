@@ -217,7 +217,6 @@ Whilst I do believe the existing features meet the requirements of the User Stor
 - [Django Testing Tools](https://docs.djangoproject.com/en/3.2/topics/testing/tools/) - Used to test the python code written for this website.  
 - [dj_database_url](https://pypi.org/project/dj-database-url/) - Used to connect to postgres database.  
 - [psycopg2](https://pypi.org/project/psycopg2/) - Database adapter used to connect to PostgreSQL database.  
-- [Jest](https://jestjs.io/) - Used to test custom JavaScript written for this website.  
 - [Coverage](https://coverage.readthedocs.io/en/latest/) - Used to view what percentage of the python code was tested by the automated python testing.  
 - [Materialize](https://materializecss.com/) - Used as this project's main CSS framework.  
 - [Gunicorn](https://gunicorn.org/) - Used as the web server that allows Django to run on Heroku.  
@@ -232,6 +231,7 @@ Whilst I do believe the existing features meet the requirements of the User Stor
 - [Git](https://git-scm.com/) - Used for this website's version control.
 - [GitHub](https://github.com/) - Used to create this website's main repository and manage this project's kanban board.  
 - [TinyPNG](https://tinypng.com/) - Used to compress the image's used in this README.  
+- [Pexels](https://www.pexels.com/) - Used to provide all of the site's imagery.  
 
 ## Deployment
 
@@ -242,7 +242,7 @@ To clone this repository paste `git clone https://github.com/Shabucky1812/star-s
 - Next, you need to create a new file at lowest level of your workspace (the same level as README.md) called **env.py**.
 - IMPORTANT: the env.py file will be used to store hidden variables such as your SECRET_KEY, to prevent any security issues you must ensure that your workspace contains a **.gitignore** file and that **env.py** is listed within it. This will ensure that your env.py file is not pushed to GitHub and made publicly available.
 - Within **env.py**, import the os module by adding `import os` at the top of the file.
-- Now, you need to create 4 environment variables using this code format: `os.environ[_*variable_name*_] = '_*value*_'`. The 4 _*variable_name*_'s should be: **DATABASE_URL**, **SECRET_KEY**, **CLOUDINARY_URL**, and finally **DEVELOPMENT**.
+- Now, you need to create 4 environment variables using this code format: `os.environ['variable_name'] = 'value'`. The 4 _*variable_name*_'s should be: **DATABASE_URL**, **SECRET_KEY**, **CLOUDINARY_URL**, and finally **DEVELOPMENT**.
 - As for the _*values*_, leave **DATABASE_URL** and **CLOUDINARY_URL** blank for now. Set the _*value*_ of the **DEVELOPMENT** variable to '1' and set the **SECRET_KEY** variable to any random string of characters you like, do not share this value with anyone.
 
 ### Setting up your ElephantSQL database:  
@@ -269,7 +269,7 @@ To clone this repository paste `git clone https://github.com/Shabucky1812/star-s
 - If you wish to make any changes to the code then you can use git to save and push those changes using the following steps:
     - Save your changes to a file using _*CTRL + S*_.
     - In the terminal type `git add .` to push all changes or you can use `*git add 'file_name_here'` to be more specific.
-    - Commit your changes using `git commit -m 'commit_message_here'`.
+    - Commit your changes using `git commit -m "'commit_message_here'"`.
     - Finally, push your changes to your main GitHub repository using `git push`.
 
 ### Deploy with Heroku:  
@@ -301,6 +301,7 @@ Please find the testing write-up for this project in [this Testing Document](tes
 
 ### Contents  
 - All of the code for this website was written by me, [Shaun Buck](https://github.com/Shabucky1812).
+- All of the imagery used throughout the website was taken from [Pexels](https://www.pexels.com/).
 - Inspiration for creating pagination using function based views was taken from [dontrepeatyourself.org](https://dontrepeatyourself.org/post/django-pagination-with-function-based-view/).
 
 ### Acknowledgements  

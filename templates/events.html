@@ -7,7 +7,7 @@
     <h3 id="events-page-title">Upcoming Events</h3>
     <!-- only show admins the add event option -->
     {% if user.is_staff %}
-    <a href="{% url 'add_event' %}"><button class="right button add-button"><i class="material-icons">add_circle_outline</i></button></a>
+    <a href="{% url 'add_event' %}" class="right button add-button"><i class="material-icons">add_circle_outline</i></a>
     {% endif %}
 </div>
 
@@ -33,7 +33,7 @@
                 
                 <!-- only show admins the edit and delete event options -->
                 {% if user.is_staff %}
-                <a href="{% url 'edit_event' event.id %}"><button class="button edit-button"><i class="material-icons">create</i></button></a>
+                <a href="{% url 'edit_event' event.id %}" class="button edit-button"><i class="material-icons">create</i></a>
                 <button data-target="delete-modal-{{ event.id }}" class="button delete-button modal-trigger"><i class="material-icons">close</i></button>
                 
                 <!-- delete confirmation modal -->
@@ -65,9 +65,9 @@
                 <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
                 {% endif %}
 
-                <span>
+                <li>
                     Page {{ events.number }} of {{ events.paginator.num_pages }}
-                </span>
+                </li>
 
                 <!-- if there is a next page after the current one, allow the chevron to link to the next page -->
                 {% if events.has_next %}

@@ -91,7 +91,7 @@
         {% if user.is_authenticated %}
         <!-- if user is authenticated, question form is displayed -->
         <form method="POST">
-            {{ question_form }}
+            {{ question_form.as_p }}
             {% csrf_token %}
             <button type="submit" class="details-button">Submit Question</button>
         </form>
