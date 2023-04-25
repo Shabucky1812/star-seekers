@@ -145,7 +145,8 @@ class TestViews(TestCase):
             'guide': self.guide,
         }
 
-        response = self.client.post(reverse('add_event'), data=form, follow=True)
+        response = self.client.post(reverse('add_event'), data=form,
+                                    follow=True)
         self.assertRedirects(response, '/events/2')
 
     def test_editing_an_event(self):
@@ -160,7 +161,8 @@ class TestViews(TestCase):
         test_admin = User.objects.create_superuser('admin', password)
         self.client.login(username=test_admin.username, password=password)
 
-        response = self.client.post(reverse('edit_event', args=[1]), {'title': 'updated title'})
+        response = self.client.post(reverse('edit_event', args=[1]),
+                                    {'title': 'updated title'})
         self.assertRedirects(response, reverse('event_detail', args=[1]))
 
         updated_event = Event.objects.get(id=1)

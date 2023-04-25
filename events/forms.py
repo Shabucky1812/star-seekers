@@ -9,7 +9,8 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ('title', 'description', 'image', 'event_date', 'start_time', 'meet_point', 'expected_weather', 'guide')
+        fields = ('title', 'description', 'image', 'event_date', 'start_time',
+                  'meet_point', 'expected_weather', 'guide')
 
 
 class QuestionForm(forms.ModelForm):
