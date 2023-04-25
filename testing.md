@@ -11,8 +11,20 @@ All of the HTML written for this website was validated using [this HTML validato
 #### Events Page:  
 ![HTML validator results for events page.](documentation/testing/events-page-html.png)  
 
-### Event Details Page:  
+#### Event Details Page:  
 ![HTML validator results for event details page.](/documentation/testing/event-details-page-html.png)  
+
+#### Event Form Page:  
+![HTML validator results for event form page.](/documentation/testing/event-form-page-html.png)  
+
+### CSS validation: 
+All of the CSS written for this website was validated using [this CSS validator](https://jigsaw.w3.org/css-validator/).  
+
+#### style.css:  
+![CSS validator results for style.css](/documentation/testing/css.png)  
+
+### JavaScript validation:  
+All of the JS written for this website passes through [JSHint](https://jshint.com/) without raising any errors/warnings.
 
 
 css validator,

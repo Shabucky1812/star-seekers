@@ -1,38 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // materialize collapsible navbar initialization
-    var elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems);
+    var navbar = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(navbar);
 
     // materialize datepicker initialization
-    var elems = document.querySelectorAll('#id_event_date');
-    M.Datepicker.init(elems);
+    var datepicker = document.querySelectorAll('#id_event_date');
+    M.Datepicker.init(datepicker);
 
     // materialize select initialization
-    var elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems);
+    var select = document.querySelectorAll('select');
+    M.FormSelect.init(select);
 
     // materialize modal initialization
-    var elems = document.querySelectorAll('.modal');
-    M.Modal.init(elems);
+    var modal = document.querySelectorAll('.modal');
+    M.Modal.init(modal);
 
     // find add_event form event_date field and add datepicker class for materialize functionality
-    dateField = document.getElementById('id_event_date');
+    let dateField = document.getElementById('id_event_date');
     if (dateField) {
         dateField.setAttribute('class', 'datepicker');
-    };
+    }
 
     // change start_time input field a timepicker
-    timeField = document.getElementById('id_start_time');
+    let timeField = document.getElementById('id_start_time');
     if (timeField) {
         timeField.setAttribute('type', 'time');
-    };
+    }
 
     // catch booking submit and run submission function
     let bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
         submitBooking(bookingForm);
-    };
+    }
 
     // check for unanswered questions and provide default text, the answerBlocks variable
     // must be iterated through in this way as it is a NodeList not an array and cannot be handled as such.
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < answerBlocks.length; i++) {
             // if the answer block div has no children then it does not have an answer paragraph and therefore is unanswered.
             if (answerBlocks[i].children.length == 0) {
-                answerBlocks[i].innerHTML = `<p>Sorry! This question has not been answered yet, check back again later.</p>`
+                answerBlocks[i].innerHTML = `<p>Sorry! This question has not been answered yet, check back again later.</p>`;
             }
         }
     }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             instance.open();
             sendEmail(form);
         });
-    };
+    }
 
     /**
      * Receives the submitted form and uses it's data to send a confirmation email
