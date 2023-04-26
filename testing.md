@@ -53,11 +53,55 @@ All of the custom python written for this website through [this PEP8 linter](htt
 #### test_views.py:  
 ![PEP8 linter results for test_views.py](/documentation/testing/test_views-page.png)  
 
-django tests,
+### Django Unit Testing:  
+In addition to the manual testing documented below, the functionality of forms.py, models.py, and views.py was tested using Django Testing Tools for this project.
+
+For additional information on the tests written, please see the following test files:  
+- [test_forms.py](/events/test_forms.py)
+- [test_models.py](/events/test_models.py)  
+- [test_views.py](/events/test_views.py)  
+
+The results for these tests can be seen below:  
+![Unit Test results](/documentation/testing/unit-test-results.png)  
+Unfortunately, as seen above, 2 tests fail. These 2 tests test the post functionality of the add_event view and the edit_event view and attempt to submit a valid form and assert that the page redirects. For some reason however, no redirect happens for either test. I would love to have resolved this issue but I have spent over 3 days working on this problem and have made no progress in resolving it. Here is what I have tried:  
+- Firstly, I ensured that the actual testing code was written correctly, and having combed through it multiple times, I am very confident that I have not made any errors with syntax/spelling/logic.
+- Second, I am confident that I am attempting to test a POST request correctly because the same testing file contains a seperate test that checks if the question form redirects after a successful post request, that test passes with no errors and is structured almost identically to these tests.
+- Thirdly, one of the solutions proposed online was that the page would not redirect if the data submitted was invalid. To check this I moved the post example data into a variable called form and asserted that form.is_valid, this test passed meaning there is no validation errors with the data I am attempting to post in the tests.
+
+Having tried all of the above without success, I am unsure what else could possibly be causing the problem. It may not be relevant but during the production of this project I was required to migrate the project workspace from GitPod to CodeAnywhere. This process wasn't entirely smooth and has raised some other small errors since the migration, however these were easy to deal with. I fail to see how this could really impact these tests in particular but I feel it is worth mentioning.
+
+As a final word about this issue, I would like to stress that whilst the tests fail, I have tested this functionality using the same data as the test files from the website's front-end and the forms do indeed submit and redirect. I wanted to keep the tests to prove that I have created them and so I could be honest about the difficulties I faced whilst tackling the automated testing for this project. I hope that this explanation makes up for the unfortunate fails.
+
+Additionally, [coverage](https://coverage.readthedocs.io/en/latest/) was used to view what percentage of python code was covered by my tests:  
+![Coverage report results.](/documentation/testing/)  
+The slight dip in percentage for the views.py and test_views.py files is linked to the issue mentioned above. Coverage doesn't seem to recognise that the lines relevant to the failed tests are tested at all.
 
 ## Manual Testing
 
-User stories x features map
+### User Stories  
+To show how the features of this website meet the requirements of the user stories, I have created this chart that demostrates which features are relevant to each user story:  
+
+| User Story | Achieved | Relevant Features |
+|------------|----------|-------------------|
+| US01 - Create Account | YES | F05 - Register Account Form |
+| US02 - Positive First Impression | YES | F01 - Header, F02 - Footer, F03 - Home Page |
+| US03 - Logging In | YES | F04 - Log In Form |
+| US04 - Logging Out | YES | F06 - Log Out Form |
+| US05 - View Events | YES | F07 - Upcoming Events |
+| US06 - View Event Details | YES | F08 - Event Details |
+| US07 - Additional Event Info | YES | F08 - Event Details |
+| US08 - View Event Guide | YES | F08 - Event Details |
+| US09 - Book Event | YES | F09 - Booking Form |
+| US10 - Asking Questions | YES | F10 - Ask a Question Form, F11 - Previously Asked Questions |
+| US11 - Booking Confirmation | YES | F09 - Booking Form |
+| US12 - Add Events | YES | F12 - Add Event Form |
+| US13 - Update Events | YES | F13 - Edit Event Form |
+| US14 - Delete Events | YES | F14 - Deleting an Event |
+| US15 - Add Guides | YES | F15 - Admin Panel - Guides |
+| US16 - Update Guides | YES | F15 - Admin Panel - Guides |
+| US17 - Delete Guides | YES | F15 - Admin Panel - Guides |
+| US18 - Answer User Questions | YES | F16 - Admin Panel - Answers |
+
 functionality table
 browser compatibility
 
