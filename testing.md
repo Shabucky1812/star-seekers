@@ -119,8 +119,23 @@ To show how the features of this website meet the requirements of the user stori
 | US17 - Delete Guides | YES | F15 - Admin Panel - Guides |
 | US18 - Answer User Questions | YES | F16 - Admin Panel - Answers |
 
-functionality table
-browser compatibility
+### Functionality  
+| Test Label | Test Action | Expected Outcome | Test Outcome |
+|------------|-------------|------------------|--------------|
+| Internal links | Click links in the header from various pages. | The links should redirect to the correct locations. | PASS |
+| External links | Click social links in the footer. | The links should redirect the user to the correct social site in a new tab. | PASS |
+| Creating an event | Add a new event as an admin from the front-end. | The add button should redirect to the event form page, the form should only submit upon receiving valid data, the submitted event should be created and visible from the events page. | PASS |
+| Editing an existing event | Edit an already existing event from the front-end. | The edit button should redirect to the event form page, the form should be pre-filled with the event data, the changes should be saved and visible from the event details page. | PASS |
+| Event Deletion | Delete an event from the front-end. | The delete button should produce the relevant confirmation modal, pressing delete event should permanently delete the event. | PASS |
+| Booking a spot at an event | Use the booking form as a user. | The form should only accept valid data, upon a successful submission a confirmation modal should appear and the user should receive a confirmation email. | PASS |
+| Asking a Question | Attempt to submit a question as a user. | The question form should accept valid data and successfully asked questions should appear in the previously asked question section. | PASS |
+| Answering a Question | Attempt to answer a question as an admin. | The admin panel should let admins answer questions and the answer should appear alongside the question on the relevant event details page. | PASS |
+
+### Browser Compatibility  
+This website fully function on the following web browsers:  
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
 
 ## Bugs
 
