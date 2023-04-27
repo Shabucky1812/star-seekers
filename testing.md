@@ -139,6 +139,11 @@ This website fully function on the following web browsers:
 
 ## Bugs
 
-solved, known
+### Known Bugs:  
+Apart from the previously mentioned testing error, this project currently suffers from 1 bug. This bug is related to the custom error handlers I created to replace the django defaults. For some reason, depsite having the same code structure in urls.py and views.py, the 404 error handler works correctly but 403 errors still use the django default template. Both me and my mentor are confused as to why this is. Having both looked at all the relevant code, we don't believe it is an issue caused by any syntax errors of mine. I have looked at various examples of how others have created and configured custom error handlers and referenced the Django docs multiple times to try various solutions but nothing seems to work. The only potential cause proposed by my mentor was to do with differences in Django versions. When I first created this project, I installed the latest version of Django (4.2 at the time) but I changed this to the LTS version (3.2) shortly after creating the events app. Brian and I looked through the django release notes for the newer versions but couldn't find anything that referenced custom error handlers. Other than this, I am unsure what else could be causing this issue or how to fix it.  
+
+### Solved Bugs:  
+- When the event form was first created, It would not successfully submit even with valid data. After some research on the Code Institute slack channel, I discovered that I needed to add the following attribute to the form element: `enctype="multipart/form-data"`. After making this addition, the form began submitting correctly.
+- When first created, attempting to trigger a 404 error would return a 500 error instead. By analysing the error messages in my workspace terminal, I discovered that I had made a syntax error when adding a link to the home page in the 404 template. The href of the link was not created correctly and so attempting to reach the page returned an internal server error instead. I fixed this bug by correcting the syntax.  
 
 Return to [README](README.md)
