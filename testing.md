@@ -73,7 +73,7 @@ Having tried all of the above without success, I am unsure what else could possi
 As a final word about this issue, I would like to stress that whilst the tests fail, I have tested this functionality using the same data as the test files from the website's front-end and the forms do indeed submit and redirect. I wanted to keep the tests to prove that I have created them and so I could be honest about the difficulties I faced whilst tackling the automated testing for this project. I hope that this explanation makes up for the unfortunate fails.
 
 Additionally, [coverage](https://coverage.readthedocs.io/en/latest/) was used to view what percentage of python code was covered by my tests:  
-![Coverage report results.](/documentation/testing/)  
+![Coverage report results.](/documentation/testing/coverage-results.png)  
 The slight dip in percentage for the views.py and test_views.py files is linked to the issue mentioned above. Coverage doesn't seem to recognise that the lines relevant to the failed tests are tested at all.
 
 ## Manual Testing
