@@ -76,6 +76,23 @@ Additionally, [coverage](https://coverage.readthedocs.io/en/latest/) was used to
 ![Coverage report results.](/documentation/testing/coverage-results.png)  
 The slight dip in percentage for the views.py and test_views.py files is linked to the issue mentioned above. Coverage doesn't seem to recognise that the lines relevant to the failed tests are tested at all.
 
+### Lighthouse results:  
+Google DevTools provides a service called Lighthouse report. The results of this report for each page can be seen below:  
+
+Home Page:  
+![Lighthouse results for Home Page](/documentation/testing/lighthouse-home.png)  
+
+Events Page:  
+![Lighthouse results for Events Page](/documentation/testing/lighthouse-events.png)  
+
+Event Details Page:  
+![Lighthouse results for Event Details Page](/documentation/testing/lighthouse-event-details.png)  
+
+Event Form Page:  
+![Lighthouse results for Event Form Page](/documentation/testing/lighthouse-event-form.png)  
+
+Just to note, the accessibilty scores for the event details and event form pages is slightly lower because Lighthouse doesn't seem to recognise that the dropdown form elements on both of these pages include labels. My code does include labels for the select inputs however based on the reports advice, it looks like materialize applies some automatic styling to dropdown form elements and that is what is causing this slight drop in score. As I am not able to refactor the materialize code, I cannot improve these scores. 
+
 ## Manual Testing
 
 ### User Stories  
