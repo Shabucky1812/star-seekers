@@ -146,4 +146,12 @@ Apart from the previously mentioned testing error, this project currently suffer
 - When the event form was first created, It would not successfully submit even with valid data. After some research on the Code Institute slack channel, I discovered that I needed to add the following attribute to the form element: `enctype="multipart/form-data"`. After making this addition, the form began submitting correctly.
 - When first created, attempting to trigger a 404 error would return a 500 error instead. By analysing the error messages in my workspace terminal, I discovered that I had made a syntax error when adding a link to the home page in the 404 template. The href of the link was not created correctly and so attempting to reach the page returned an internal server error instead. I fixed this bug by correcting the syntax.  
 
+### Responsiveness:  
+
+320px screen size:  
+![Example screen for 320px screen size.](/documentation/testing/responsiveness-320.png)  
+
+4k screen size:  
+![Example screen for 4k screen size.](/documentation/testing/responsiveness-4k.png)  
+
 Return to [README](README.md)

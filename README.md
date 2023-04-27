@@ -1,4 +1,6 @@
-# Star Seekers
+# Star Seekers  
+![Am I responsive examples for Star Seekers.](/documentation/testing/am-i-responsive.png)  
+
 [View the Live Website here](https://star-seekers.herokuapp.com/)
 
 Star Seekers is a fake social group that hosts late-night events for lovers of the night sky. The aim of this Star Seekers website is to allow the group to reach out to it's current members and entice new ones to join. 
@@ -232,6 +234,7 @@ Whilst I do believe the existing features meet the requirements of the User Stor
 - [GitHub](https://github.com/) - Used to create this website's main repository and manage this project's kanban board.  
 - [TinyPNG](https://tinypng.com/) - Used to compress the image's used in this README.  
 - [Pexels](https://www.pexels.com/) - Used to provide all of the site's imagery.  
+- [Am I Responsive?](https://ui.dev/amiresponsive) - used to create README website responsiveness image.
 
 ## Deployment
 
@@ -307,6 +310,6 @@ Please find the testing write-up for this project in [this Testing Document](tes
 ### Acknowledgements  
 This was an incredibly rewarding and confidence-boosting project to work on. Going into planning, I had a million questions about Django and I was feeling very overwhelmed by the looming scope. Luckily however, I have been amazed at how much I have learnt taking Star Seekers from inception to completion! Despite the occassional challenge, I feel as though this project has gone smoothly and I am so proud of what I have achieved. I completely reworked how I manage my time whilst working for this website and my productivity has absolutely soared. Whilst I know the end-product isn't perfect, this project has taught me to trust myself, and completely re-invigorated my love for taking on challenges headfirst. I am truly thankful for Star Seekers.
 
-Additionaly, I would like to extend a huge thank you to my mentor Brian Macharia for all of his input to this project and his patience in me. Thank you so much!
+Additionally, I would like to extend a huge thank you to my mentor Brian Macharia for all of his input to this project and his patience in me. Thank you so much!
 
 I hope you found this README insightful, have a great day.
